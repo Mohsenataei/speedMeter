@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="backColor">#3e3e3e</color>
+    <color name="secondBackColor">#4d4c4c</color>
+    <color name="backgroundColor">@color/backColor</color>
+    <color name="gray_50">#745c5c5c</color>
+    <color name="gray_300">#565656</color>
+    <color name="color_tab">#909094</color>
+    <color name="tab_inactive">#808084</color>
+    <color name="black">#424242</color>
+    <color name="white">#FFFFFF</color>
+    <color name="first_result">#E65100</color>
+    <color name="second_result">#FF6F00</color>
+    <color name="third_result">#FFA557</color>
+    <color name="forth_result">#FFC996</color>
+    <color name="fifth_result">#FBB611</color>
+    <color name="sixth_result">#F16E20</color>
+    <color name="seventh_result">#EC1A23</color>
+    <color name="colorPrimary">#FF3D00</color>
+    <color name="speedColor">#000000</color>
+    <color name="primaryLightColor">#FD450C</color>
+    <color name="colorPrimaryDark">#FFE1A0</color>
+    <color name="colorAccent">#FF9800</color>
+    <color name="secondaryLightColor">#F44336</color>
+    <color name="secondaryDarkColor">#F44336</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#000000</color>
+    <color name="lightBack">#E1E2E1</color>
+    <color name="aflightBack">#b4b4b4</color>
+    <color name="notifSpeed">#ff1e1e</color>
+    <color name="titleTextColor">#4B4B4B</color>
+    <color name="detailTextColor">#AFAFAF</color>
+    <color name="tintColor">#FFB300</color>
+    <color name="bottomIconColor">@color/textDark</color>
+    <color name="selectedBottomIconColor">@color/textDark</color>
+    <color name="activityBackColor">#FFC8C4</color>
+    <color name="earthquakeSecondaryColor">#5F5C5C</color>
+    <color name="text_shadow">#26000000</color>
+    <color name="color1">#FFF7EE</color>
+    <color name="color2">#FFE1A0</color>
+    <color name="color3">#D7F4941E</color>
+
+    <color name="default_background">#eee</color>
+    <color name="textDark">#A02C0A</color>
+
+
+</resources>

@@ -1,0 +1,113 @@
+<resources>
+    <string name="app_name">سرعت سنج</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="distance">Distance</string>
+    <string name="Distance">مسافت</string>
+    <string name="avg_speed">سرعت میانگین</string>
+    <string name="max_speed">بالاترین سرعت</string>
+    <string name="speed_limit">محدودیت سرعت</string>
+    <string name="speed_limit_notif">ابتدا سقف سرعت مجاز را مشخص نمایید</string>
+    <string name="access_permission_notif">لطفا دسترسی های لازم را به برنامه بدهید</string>
+    <string name="stop">توقف</string>
+    <string name="start">شروع</string>
+    <string name="save">ذخیره</string>
+    <string name="not_set">ندارد</string>
+    <string name="hoosh">سوال هوش</string>
+    <string name="clip">کلیپ</string>
+    <string name="soratsanj">سرعت سنج</string>
+    <string name="favorites">علاقه مندی ها</string>
+    <string name="error_network">خطا در برقراری ارتباط با سرور</string>
+    <string name="send_to">ارسال به</string>
+    <string name="niat">نیت کنید و اشاره فرمایید</string>
+    <string name="first_question">سوال ۱ از ۴۰</string>
+    <string name="nextQuestion">بعدی</string>
+    <string name="show_result">نمایش نتایج</string>
+    <string name="first_iq_intro_page">تست هوش ریون یکی از روش‌های رایج برای اندازه‌ گیری بهره هوشی در جهان می باشد.
+        سالیان متمادی است که در ایران نیز از تست هوش ریون به منظور سنجش بهره هوش دانش آموزان در مقاطع مختلف تحصیلی
+        استفاده می شود.
+    </string>
+    <string name="second_iq_intro">این تست دارای ۴۰ سؤال تصویری سیاه و سفید است. نحوه پاسخگویی به سوالات آزمون هوش ریون
+        به این صورت است که می بایست شکل ارائه شده در بالای تصویر به وسیله ی یکی از ۶ یا ۸ گزینه پایین تصویر تکمیل شود.
+    </string>
+    <string name="about_test">توصیف آزمون</string>
+    <string name="third_iq_intro">افراد با دادن تست هوش تصویری ریون براساس امتیاز یا بهره هوشی یا همان iq ای که بدست می
+        آورند در 7 طبقه تقسیم می شوند
+    </string>
+    <string name="test_res">خروجی آزمون</string>
+    <string name="start_test">شروع آزمون</string>
+    <string name="forth_iq_intro">بر اساس این آزمون همه افراد در ۷ طبقه مختلف جای می گیرند که شامل موارد زیر می باشد
+        :\n\n ۱) طبقه ممتاز و
+        نابغه \n\n ۲) بر هوش \n\n ۳) باهوش \n\n ۴) متوسط \n\n ۵) ضعیف \n\n ۶) مرزی \n\n ۷) عقب مانده و مرزی ضعیف
+    </string>
+    <string name="iq_test">تست IQ</string>
+    <string name="your_point">امتیاز شما</string>
+    <string name="test_result">نتیجه آزمون</string>
+    <string name="suggest_to_use_app">من سرعت و مسافت را با این اپلیکیشن ثبت می کنم به شما هم توصیه می کنم</string>
+    <string name="favorite_empty_alert">لیست علاقمندی های شما خالی می باشد.در این بخش می توانید کلیپ هایی که به علاقه
+        مندی ها افزوده اید را ببینید
+    </string>
+    <string name="test_hoosh">علمی و سرگرمی</string>
+    <string name="test_raven">تست هوش تصویری (IQ)</string>
+    <string name="previousQuestion">قبلی</string>
+    <string name="firstEvaluate">نابغه</string>
+    <string name="secondEvaluate">برهوش</string>
+    <string name="thirdEvaluate">باهوش</string>
+    <string name="fourthEvaluate">متوسط</string>
+    <string name="fifthEvaluate">ضعیف</string>
+    <string name="sixthEvaluate">مرزی</string>
+    <string name="seventhEvaluate">عقب مانده</string>
+    <string name="without_limit">محدودیت سرعت</string>
+    <string name="topTitle">%d از %d</string>
+    <string name="earthquakeMagLabel">ریشتر</string>
+    <string name="earthquakeDep">عمق %d کیلومتر</string>
+    <string name="earthquake">لرزه نگار</string>
+    <string name="contents">مطالب</string>
+    <string name="haghayegheElmi">حقایق علمی</string>
+    <string name="tests">تست ها</string>
+    <string name="hafez">فال حافظ</string>
+    <string name="speed_meter">سرعت سنج</string>
+
+    <string name="ok">تائید</string>
+    <string name="laws_features_title">امکانات اپلیکیشن هشدار زلزله</string>
+
+    <string name="laws_feature1">- نوتیفیکیشن هنگام وقوع زلزله در نزدیکی شما</string>
+    <string name="laws_feature2">- فال حافظ</string>
+    <string name="laws_feature3">- سرعت سنج ماشین</string>
+    <string name="laws_feature4">- تست IQ</string>
+    <string name="laws_feature5">- مطالب علمی مفید</string>
+    <string name="laws_final_description">هزینه روزانه عضویت در سرویس پانصد تومان است که هزینه سرویس مشترکین اعتباری به
+        شکل کسر از اعتبار سیم کارت و برای مشترکین دائمی روی هزینه قبض اعمال میشود.
+    </string>
+    <string name="laws_title">شرایط سرویس</string>
+    <string name="laws_phone">شماره پشتیبانی : ۲۶۲۹۱۶۳۲-۰۲۱</string>
+
+    <string name="laws_email">ایمیل: acc.tookan@gmail.com</string>
+
+    <string name="i_agree_link">با شرایط سرویس موافقم</string>
+
+    <string name="in_vehicle">In a vehicle</string>
+    <string name="on_bicycle">On a bicycle</string>
+    <string name="on_foot">On foot</string>
+    <string name="running">Running</string>
+    <string name="still">Still</string>
+    <string name="tilting">Tilting</string>
+    <string name="unknown">Unknown activity</string>
+    <string name="walking">Walking</string>
+    <string name="unidentifiable_activity">Unidentifiable activity: %1$d</string>
+    <string name="unsub">لغو اشتراک</string>
+    <string name="educational">آموزشی زلزله</string>
+    <string name="login_message_1"/>
+    <string name="login_message_2"/>
+
+
+    <string name="splash2">اپلیکیشن هشدار زلزله که ارائه دهنده آن شرکت توکان وس است، اطلاعات جذابی از آخرین زمین
+        لرزه ها در اختیار شما قرار می دهد. حوادث طبیعی همیشه در کمین ما هستند و یکی از هولناک ترین آنها زلزله است. ایران
+        یکی از کشورهای زلزله خیز محسوب میشود و تا به امروز با پیشرفت چشمگیر تکنولوژی، محققان هنوز موفق به پیش بینی زلزله
+        نشده اند. علاوه بر هشدار دهنده زلزله مطالب متنوع دانستنی و آموزشی را داراست که میتوان با بکارگیری آن سطح اطلاعات
+        خود را افزایش داد.
+    </string>
+    <string name="login_message">عضویت در هشدار زلزله با تعرفه روزانه پانصد تومان</string>
+    <string name="articles">مقالات</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundCornerFrameLayout">
+        <attr name="top_left" format="dimension" />
+        <attr name="top_right" format="dimension" />
+        <attr name="bottom_left" format="dimension" />
+        <attr name="bottom_right" format="dimension" />
+    </declare-styleable>
+</resources>
