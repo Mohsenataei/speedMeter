@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mohsen.speedmeter.activity.SpeedMeterActivity"
+    android:background="@color/speedColor"
+    android:keepScreenOn="true"
+    android:padding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:id="@+id/limitParent" tools:layout_editor_absoluteY="16dp"
+        tools:layout_editor_absoluteX="16dp">
+
+        <ImageView
+            android:id="@+id/imgShareSpeedMeter"
+            android:src="@drawable/ic_share_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:visibility="gone"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:text="@string/speed_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/txtSpeedLimit"
+            android:layout_marginTop="8dp"
+            style="@style/TextView.white"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+        <ImageView
+            android:src="@android:color/darker_gray"
+            android:layout_width="60dp"
+            android:layout_height="1dp" android:id="@+id/devider1"
+            app:layout_constraintTop_toBottomOf="@+id/txtSpeedLimit"
+            app:layout_constraintStart_toStartOf="@+id/txtSpeedLimit"
+            app:layout_constraintEnd_toEndOf="@+id/txtSpeedLimit" android:layout_marginTop="4dp"/>
+        <TextView
+            android:text="0"
+            style="@style/TextView.white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/txtSpeedLimitValue"
+            app:layout_constraintTop_toBottomOf="@+id/devider1"
+            app:layout_constraintEnd_toEndOf="@+id/txtSpeedLimit"
+            app:layout_constraintStart_toStartOf="@+id/txtSpeedLimit" android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:text="@string/Distance"
+            style="@style/TextView.white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/txtDistance"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"/>
+        <ImageView
+            android:id="@+id/devider2"
+            android:src="@android:color/darker_gray"
+            android:layout_width="60dp"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtDistance"
+            app:layout_constraintStart_toStartOf="@+id/txtDistance"
+            app:layout_constraintEnd_toEndOf="@+id/txtDistance" android:layout_marginTop="4dp"/>
+        <TextView
+            android:text="0"
+            style="@style/TextView.white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/txtDistanceValue"
+            app:layout_constraintTop_toBottomOf="@+id/devider2"
+            app:layout_constraintEnd_toEndOf="@+id/txtDistance"
+            app:layout_constraintStart_toStartOf="@+id/txtDistance" android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:text="0"
+            style="@style/TextView.white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/txtAverageSpeedValue"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txtAverageSpeed"
+            app:layout_constraintStart_toStartOf="@+id/txtAverageSpeed"/>
+        <ImageView
+            android:id="@+id/devider3"
+            android:src="@android:color/darker_gray"
+            android:layout_width="60dp"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtAverageSpeedValue"
+            android:layout_marginBottom="4dp" app:layout_constraintStart_toStartOf="@+id/txtAverageSpeed"
+            app:layout_constraintEnd_toEndOf="@+id/txtAverageSpeed"/>
+        <TextView
+            android:text="@string/avg_speed"
+            style="@style/TextView.white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/txtAverageSpeed"
+            app:layout_constraintBottom_toTopOf="@+id/devider3"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:text="0"
+            style="@style/TextView.white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/txtMaxSpeed"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtMaxSpeedValue"
+            app:layout_constraintEnd_toEndOf="@+id/txtMaxSpeedValue"/>
+        <ImageView
+            android:id="@+id/devider4"
+            android:src="@android:color/darker_gray"
+            android:layout_width="60dp"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtMaxSpeed"
+            android:layout_marginBottom="4dp" app:layout_constraintEnd_toEndOf="@+id/txtMaxSpeedValue"
+            app:layout_constraintStart_toStartOf="@+id/txtMaxSpeedValue"/>
+        <TextView
+            android:text="@string/max_speed"
+            style="@style/TextView.white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/txtMaxSpeedValue"
+            app:layout_constraintBottom_toTopOf="@+id/devider4"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"/>
+        <Button
+            android:text="@string/stop"
+            style="@style/Button.lightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnStop" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"/>
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/txtMaxSpeedValue"
+            />
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/speedMeterViewPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:overScrollMode="never"
+            app:layout_constraintTop_toBottomOf="@+id/txtDistanceValue"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/indicator"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/txtHeadUpSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:rotation="-90"
+        android:text="0"
+        android:textSize="240dp"
+        android:scaleX="-1"
+        style="@style/TextView.white.speed"
+        android:gravity="center|center_vertical|center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.51"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

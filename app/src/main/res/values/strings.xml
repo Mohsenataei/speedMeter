@@ -1,19 +1,19 @@
 <resources>
-    <string name="app_name">سرعت سنج</string>
+    <string name="app_name">speedmeter</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="distance">Distance</string>
-    <string name="Distance">مسافت</string>
-    <string name="avg_speed">سرعت میانگین</string>
-    <string name="max_speed">بالاترین سرعت</string>
-    <string name="speed_limit">محدودیت سرعت</string>
+    <string name="Distance">distance</string>
+    <string name="avg_speed">average speed</string>
+    <string name="max_speed">highest speed</string>
+    <string name="speed_limit">speed limit</string>
     <string name="speed_limit_notif">ابتدا سقف سرعت مجاز را مشخص نمایید</string>
     <string name="access_permission_notif">لطفا دسترسی های لازم را به برنامه بدهید</string>
-    <string name="stop">توقف</string>
-    <string name="start">شروع</string>
-    <string name="save">ذخیره</string>
-    <string name="not_set">ندارد</string>
+    <string name="stop">stop</string>
+    <string name="start">start</string>
+    <string name="save">save</string>
+    <string name="not_set">not set</string>
     <string name="hoosh">سوال هوش</string>
     <string name="clip">کلیپ</string>
     <string name="soratsanj">سرعت سنج</string>
@@ -58,7 +58,7 @@
     <string name="fifthEvaluate">ضعیف</string>
     <string name="sixthEvaluate">مرزی</string>
     <string name="seventhEvaluate">عقب مانده</string>
-    <string name="without_limit">محدودیت سرعت</string>
+    <string name="without_limit">speed limit</string>
     <string name="topTitle">%d از %d</string>
     <string name="earthquakeMagLabel">ریشتر</string>
     <string name="earthquakeDep">عمق %d کیلومتر</string>
@@ -70,7 +70,7 @@
     <string name="speed_meter">سرعت سنج</string>
 
     <string name="ok">تائید</string>
-    <string name="laws_features_title">امکانات اپلیکیشن هشدار زلزله</string>
+    <string name="laws_features_title">امکانات اپلیکیشن سرعت سنج</string>
 
     <string name="laws_feature1">- نوتیفیکیشن هنگام وقوع زلزله در نزدیکی شما</string>
     <string name="laws_feature2">- فال حافظ</string>
@@ -98,16 +98,13 @@
     <string name="unidentifiable_activity">Unidentifiable activity: %1$d</string>
     <string name="unsub">لغو اشتراک</string>
     <string name="educational">آموزشی زلزله</string>
-    <string name="login_message_1"/>
-    <string name="login_message_2"/>
+    <string name="login_message_1" />
+    <string name="login_message_2" />
 
 
-    <string name="splash2">اپلیکیشن هشدار زلزله که ارائه دهنده آن شرکت توکان وس است، اطلاعات جذابی از آخرین زمین
-        لرزه ها در اختیار شما قرار می دهد. حوادث طبیعی همیشه در کمین ما هستند و یکی از هولناک ترین آنها زلزله است. ایران
-        یکی از کشورهای زلزله خیز محسوب میشود و تا به امروز با پیشرفت چشمگیر تکنولوژی، محققان هنوز موفق به پیش بینی زلزله
-        نشده اند. علاوه بر هشدار دهنده زلزله مطالب متنوع دانستنی و آموزشی را داراست که میتوان با بکارگیری آن سطح اطلاعات
-        خود را افزایش داد.
+    <string name="splash2">اپلیکیشن سرعت سنج که ارائه دهنده آن شرکت توکان مهام فن است، به کمک این برنامه می توانید در هر جایی که هستید سرعت حرکت خود را بسنجید. کار با این برنامه بسیار آسان است. کافیست برنامه را اجرا کرده و ان را روی داشبورد خودروی خود قرار دهید نور صفحه روی شیشه خودرو می افتد و می توانید سرعت حرکت خود را ببینید
     </string>
-    <string name="login_message">عضویت در هشدار زلزله با تعرفه روزانه پانصد تومان</string>
+    <string name="login_message">عضویت در سرعت سنج با تعرفه روزانه پانصد تومان</string>
     <string name="articles">مقالات</string>
+    <string name="back_again_to_exist">دکمه بازگشت را دوباره فشار دهید.</string>
 </resources>

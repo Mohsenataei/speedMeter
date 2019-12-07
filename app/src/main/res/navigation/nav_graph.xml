@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/speedMeterIntroFragment">
+
+    <fragment
+        android:id="@+id/speedMeterIntroFragment"
+        android:name="com.mohsen.speedmeter.fragment.SpeedMeterIntroFragment"
+        android:label="activity_speed_meter_intro"
+        tools:layout="@layout/activity_speed_meter_intro" />
+    <fragment
+        android:id="@+id/speedMeterFragment"
+        android:name="com.mohsen.speedmeter.fragment.SpeedMeterFragment"
+        android:label="fragment_speed_meter"
+        tools:layout="@layout/fragment_speed_meter" />
+</navigation>

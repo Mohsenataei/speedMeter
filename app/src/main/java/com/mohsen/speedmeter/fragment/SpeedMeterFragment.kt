@@ -1,9 +1,9 @@
-package co.avalinejad.iq.fragment
+package com.mohsen.speedmeter.fragment
 
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.arch.lifecycle.ViewModelProviders
+
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -13,27 +13,32 @@ import android.location.LocationListener
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.support.v4.app.Fragment
+
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import co.avalinejad.iq.R
-import co.avalinejad.iq.adapter.SpeedMeterPagerAdapter
-import co.avalinejad.iq.util.APP_ADDRESS
-import co.avalinejad.iq.util.HEAD_UP_SHOW
-import co.avalinejad.iq.util.NORMAL_SHOW
-import co.avalinejad.iq.viewmodel.SpeedViewModel
+
 import kotlinx.android.synthetic.main.fragment_speed_meter.*
 import kotlin.math.roundToInt
 import com.google.android.gms.location.ActivityRecognition
 import android.app.PendingIntent
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+
+
 import com.google.android.gms.common.api.GoogleApiClient
-import co.avalinejad.iq.service.DetectedActivitiesIntentService
-import co.avalinejad.iq.util.ActivityStore
+
+
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.location.DetectedActivity
-import ir.ihome.agencyapp.extentions.toPersianNumbers
+import com.mohsen.speedmeter.R
+import com.mohsen.speedmeter.adapter.SpeedMeterPagerAdapter
+import com.mohsen.speedmeter.util.APP_ADDRESS
+import com.mohsen.speedmeter.util.ActivityStore
+import com.mohsen.speedmeter.util.HEAD_UP_SHOW
+import com.mohsen.speedmeter.util.NORMAL_SHOW
+import com.mohsen.speedmeter.viewmodel.SpeedViewModel
 
 
 const val ARG_LIMIT = "limit"
@@ -42,8 +47,7 @@ var minDistatnceChangeForGPSUpdate: Long = 0L // 1 meters
 var minTimeChangeForGPSUpdate = 0L
 var updateCounter = 0
 const val MY_PERMISSIONS_ACCESS_FINE_LOCATION = 1
-
-private lateinit var googleApiClient: GoogleApiClient
+ lateinit var googleApiClient: GoogleApiClient
 
 open class SpeedMeterFragment : Fragment(), LocationListener, GoogleApiClient.OnConnectionFailedListener,
     GoogleApiClient.ConnectionCallbacks {
@@ -109,6 +113,7 @@ open class SpeedMeterFragment : Fragment(), LocationListener, GoogleApiClient.On
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(
@@ -124,7 +129,7 @@ open class SpeedMeterFragment : Fragment(), LocationListener, GoogleApiClient.On
         limit = arguments!!.getInt(ARG_LIMIT)
         val showType = arguments!!.getString(ARG_SHOW_TYPE)
 
-        configShowType(showType)
+        configShowType(showType!!)
         adapter = SpeedMeterPagerAdapter(activity!!, speedViewModel, limit)
         speedMeterViewPager.adapter = adapter
         indicator.setViewPager(speedMeterViewPager)
@@ -250,6 +255,8 @@ open class SpeedMeterFragment : Fragment(), LocationListener, GoogleApiClient.On
             this
         )
     }
+
+
 
     private fun stopUsingGPS() {
         locationManager.removeUpdates(this)
@@ -421,7 +428,7 @@ open class SpeedMeterFragment : Fragment(), LocationListener, GoogleApiClient.On
                 if (totalDistanceM < 10)
                     totalDistanceM = 0.0
 
-                txtDistanceValue.text = totalDistanceM.toString() + " متر"
+                txtDistanceValue.text = totalDistanceM.toString() + " m"
 
                 if (limit != 0 && speedKMH.toInt() > limit)
                     txtHeadUpSpeed.setTextColor(resources.getColor(R.color.notifSpeed))
@@ -466,7 +473,7 @@ open class SpeedMeterFragment : Fragment(), LocationListener, GoogleApiClient.On
         if (googleApiClient.isConnected)
             return
 
-        val intent = Intent(context, DetectedActivitiesIntentService::class.java)
+        val intent = Intent(context, com.mohsen.speedmeter.service.DetectedActivitiesIntentService::class.java)
         val pendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         ActivityRecognition.ActivityRecognitionApi.requestActivityUpdates(

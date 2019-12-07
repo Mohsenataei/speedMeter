@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mohsen.speedmeter.fragment.SpeedMeterIntroFragment"
+    android:background="@drawable/gradiant2"
+    android:padding="@dimen/space_1"
+    android:id="@+id/frameLayout2">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="@dimen/cardBorderRadius"
+        android:elevation="@dimen/elevationCard" android:id="@+id/cardView"
+        tools:layout_editor_absoluteY="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView android:layout_width="48dp" android:layout_height="48dp"
+                android:src="@drawable/up" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent" android:id="@+id/imgUp"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="3"
+                android:text="60"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_xxxxlarge"
+                android:background="@android:color/transparent"
+                android:id="@+id/edtLimit" app:layout_constraintEnd_toEndOf="@+id/imgUp"
+                app:layout_constraintStart_toStartOf="@id/imgUp"
+                app:layout_constraintTop_toBottomOf="@+id/imgUp"/>
+            <TextView
+                android:text="KM/H"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/txtKM"
+                android:textColor="@color/detailTextColor"
+                android:fontFamily="@font/main_font_family"
+                app:layout_constraintEnd_toEndOf="@+id/edtLimit"
+                app:layout_constraintStart_toStartOf="@+id/edtLimit"
+                app:layout_constraintTop_toBottomOf="@+id/edtLimit"/>
+            <ImageView
+                android:src="@drawable/down"
+                android:layout_width="48dp"
+                android:layout_height="48dp" android:id="@+id/imgDown"
+                app:layout_constraintEnd_toEndOf="@+id/imgUp"
+                app:layout_constraintStart_toStartOf="@+id/imgUp" app:layout_constraintTop_toBottomOf="@+id/txtKM"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/limitSwitch"
+        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"/>
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/limitSwitch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="32dp"/>
+
+    <Button
+        android:text="speed meter"
+        style="@style/Button.lightText"
+        android:textSize="@dimen/text_size_large"
+        android:elevation="@dimen/space_2"
+        android:padding="@dimen/space_3"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:id="@+id/btnSpeedMeter"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+        app:layout_constraintTop_toTopOf="@+id/btnHeadUp" app:layout_constraintBottom_toBottomOf="@+id/btnHeadUp"/>
+
+    <Button
+        android:text="Head Up"
+        style="@style/Button.lightText"
+        android:textSize="@dimen/text_size_large"
+        android:elevation="@dimen/space_2"
+        android:padding="@dimen/space_3"
+        android:layout_margin="@dimen/space_0.5"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:id="@+id/btnHeadUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:layout_marginTop="24dp"/>
+    <TextView
+        android:text="@string/without_limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textColor="@color/primaryLightColor"
+        app:layout_constraintTop_toTopOf="@+id/limitSwitch"
+        app:layout_constraintBottom_toBottomOf="@+id/limitSwitch"
+        app:layout_constraintEnd_toStartOf="@+id/limitSwitch" android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

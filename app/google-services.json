@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "343395878797",
+    "firebase_url": "https://speedmeter-1570524642679.firebaseio.com",
+    "project_id": "speedmeter-1570524642679",
+    "storage_bucket": "speedmeter-1570524642679.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343395878797:android:d69375b4b929a31932dfc4",
+        "android_client_info": {
+          "package_name": "com.mohsen.speedmeter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "343395878797-lajclmkaggicv9hemvcemja0vvitjpv1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mohsen.speedmeter",
+            "certificate_hash": "e3133b90b17c60ec71e02071fa0475624492edad"
+          }
+        },
+        {
+          "client_id": "343395878797-2afchjdvld8pfbc8gdsm4c5r85g64fco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDniw1bbg_8EAuECDrklMOHKPcn_CPCVcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "343395878797-n8q2b0q4u8ubm77r8b035tahoutli0gi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

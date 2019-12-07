@@ -1,30 +1,33 @@
-package co.avalinejad.iq.fragment
-
-
+package com.mohsen.speedmeter.fragment
 import android.os.Bundle
-import android.support.v4.app.Fragment
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
 
-import co.avalinejad.iq.R
-import co.avalinejad.iq.util.HEAD_UP_SHOW
-import co.avalinejad.iq.util.NORMAL_SHOW
+
 import kotlinx.android.synthetic.main.fragment_speed_meter_intro.*
 import android.content.Context.MODE_PRIVATE
-import android.R.id.edit
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.fragment.app.Fragment
-import co.avalinejad.iq.activity.*
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.mohsen.speedmeter.R
+import com.mohsen.speedmeter.activity.InnerPageActivity
+import com.mohsen.speedmeter.activity.fragExtraName
+import com.mohsen.speedmeter.activity.fragExtraValueTag
+import com.mohsen.speedmeter.activity.fragName
+import com.mohsen.speedmeter.util.HEAD_UP_SHOW
+import com.mohsen.speedmeter.util.NORMAL_SHOW
 
 
 const val MY_PREFS_NAME = "earthquake"
 const val SPEED_LIMIT = "speed_limit"
 
 class SpeedMeterIntroFragment : Fragment(), CompoundButton.OnCheckedChangeListener {
+    lateinit var navController: NavController
 
     companion object {
         fun newInstance(): SpeedMeterIntroFragment {
@@ -42,12 +45,14 @@ class SpeedMeterIntroFragment : Fragment(), CompoundButton.OnCheckedChangeListen
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_speed_meter_intro, container, false)
+
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        getView()!!.findNavController().navigate(R.id.action_LimitFragment_to_SpeedFragment)
+        navController = Navigation.findNavController(view)
         editor = activity!!.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE)
 
         edtLimit.setText(editor.getInt(SPEED_LIMIT, 60).toString())
@@ -57,19 +62,29 @@ class SpeedMeterIntroFragment : Fragment(), CompoundButton.OnCheckedChangeListen
 
 
         imgUp.setOnClickListener {
-            limit = Integer.parseInt(edtLimit.text.toString())
-            if (limit < 200){
-                limit += 5
-                edtLimit.setText((limit).toString())
+            if (edtLimit.text.isNullOrEmpty()){
+                edtLimit.setText("5")
+            }else{
+                limit = Integer.parseInt(edtLimit.text.toString())
+                if (limit < 200){
+                    limit += 5
+                    edtLimit.setText((limit).toString())
+                }
             }
         }
 
         imgDown.setOnClickListener {
-            limit = Integer.parseInt(edtLimit.text.toString())
-            if (limit > 5){
-                limit -= 5
-                edtLimit.setText((limit).toString())
+            if (edtLimit.text.isNullOrEmpty()){
+                edtLimit.setText("0")
+            }else
+            {
+                limit = Integer.parseInt(edtLimit.text.toString())
+                if (limit > 5){
+                    limit -= 5
+                    edtLimit.setText((limit).toString())
+                }
             }
+
         }
 
 
