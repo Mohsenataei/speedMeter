@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.mohsen.speedmeter.fragment.SpeedMeterFragment"
+        tools:context="co.avalinejad.iq.fragment.SpeedMeterFragment"
         android:background="@color/speedColor"
         android:keepScreenOn="true"
         android:padding="16dp">

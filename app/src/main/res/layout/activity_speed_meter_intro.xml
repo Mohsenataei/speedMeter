@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mohsen.speedmeter.fragment.SpeedMeterIntroFragment"
+    tools:context="co.avalinejad.iq.fragment.SpeedMeterIntroFragment"
     android:background="@drawable/gradiant2"
     android:padding="@dimen/space_1"
     android:id="@+id/frameLayout2">

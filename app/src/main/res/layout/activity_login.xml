@@ -35,7 +35,7 @@
                 android:layout_marginBottom="@dimen/space_0.5"
                 android:textSize="14sp" />
 
-            <com.mohsen.speedmeter.util.RoundCornerFrameLayout
+            <co.avalinejad.iq.util.RoundCornerFrameLayout
 
                 android:id="@+id/text_price"
                 android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                 </FrameLayout>
 
 
-            </com.mohsen.speedmeter.util.RoundCornerFrameLayout>
+            </co.avalinejad.iq.util.RoundCornerFrameLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                 android:textSize="14sp"
                 tools:ignore="MissingPrefix" />
 
-            <com.mohsen.speedmeter.util.RoundCornerFrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            <co.avalinejad.iq.util.RoundCornerFrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 app:bottom_left="8dp"
@@ -101,7 +101,7 @@
                         android:inputType="number" />
 
                 </FrameLayout>
-            </com.mohsen.speedmeter.util.RoundCornerFrameLayout>
+            </co.avalinejad.iq.util.RoundCornerFrameLayout>
 
             <TextView
                 android:id="@+id/passwordTitle"
@@ -115,7 +115,7 @@
                 android:textSize="14sp"
                 tools:ignore="MissingPrefix" />
 
-            <com.mohsen.speedmeter.util.RoundCornerFrameLayout
+            <co.avalinejad.iq.util.RoundCornerFrameLayout
                 android:id="@+id/passwordFrame"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
@@ -137,9 +137,9 @@
                         android:inputType="number" />
 
                 </FrameLayout>
-            </com.mohsen.speedmeter.util.RoundCornerFrameLayout>
+            </co.avalinejad.iq.util.RoundCornerFrameLayout>
 
-            <com.mohsen.speedmeter.util.RoundCornerFrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            <co.avalinejad.iq.util.RoundCornerFrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -170,7 +170,7 @@
                         android:textSize="14sp"
                         tools:ignore="MissingPrefix" />
                 </FrameLayout>
-            </com.mohsen.speedmeter.util.RoundCornerFrameLayout>
+            </co.avalinejad.iq.util.RoundCornerFrameLayout>
 
             <TextView
                 android:id="@+id/laws_link"

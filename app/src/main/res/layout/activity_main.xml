@@ -6,7 +6,7 @@
     android:background="@drawable/navy_blue_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mohsen.speedmeter.activity.MainActivity">
+    tools:context="co.avalinejad.iq.activity.MainActivity">
 
 
 

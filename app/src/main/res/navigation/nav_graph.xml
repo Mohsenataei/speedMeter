@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/speedMeterIntroFragment"
-        android:name="com.mohsen.speedmeter.fragment.SpeedMeterIntroFragment"
+        android:name="co.avalinejad.iq.fragment.SpeedMeterIntroFragment"
         android:label="activity_speed_meter_intro"
         tools:layout="@layout/activity_speed_meter_intro" />
     <fragment
         android:id="@+id/speedMeterFragment"
-        android:name="com.mohsen.speedmeter.fragment.SpeedMeterFragment"
+        android:name="co.avalinejad.iq.fragment.SpeedMeterFragment"
         android:label="fragment_speed_meter"
         tools:layout="@layout/fragment_speed_meter" />
 </navigation>

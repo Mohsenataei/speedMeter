@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/speedColor"
-    tools:context="com.mohsen.speedmeter.co.avalinejad.iq.activity.HeadUpActivity">
+    tools:context="co.avalinejad.iq.co.avalinejad.iq.activity.HeadUpActivity">
 
     <TextView
         android:id="@+id/txtHeadUpSpeed"

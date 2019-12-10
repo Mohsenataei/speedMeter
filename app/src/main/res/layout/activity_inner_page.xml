@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/innerPage"
-    tools:context="com.mohsen.speedmeter.activity.InnerPageActivity">
+    tools:context="co.avalinejad.iq.activity.InnerPageActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

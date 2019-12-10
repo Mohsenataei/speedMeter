@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mohsen.speedmeter">
+    package="co.avalinejad.iq">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -14,32 +14,32 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.mohsen.speedmeter.activity.SplashScreenActivity">
+        <activity android:name="co.avalinejad.iq.activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.mohsen.speedmeter.activity.NewSpeedMeter">
+        <activity android:name="co.avalinejad.iq.activity.NewSpeedMeter">
 
         </activity>
-        <activity android:name="com.mohsen.speedmeter.activity.HeadUpActivity" />
-        <activity android:name="com.mohsen.speedmeter.activity.SpeedMeterIntroActivity" />
-        <activity android:name="com.mohsen.speedmeter.activity.SplashActivity1" />
+        <activity android:name="co.avalinejad.iq.co.avalinejad.iq.activity.HeadUpActivity" />
+        <activity android:name="co.avalinejad.iq.co.avalinejad.iq.activity.SpeedMeterIntroActivity" />
+        <activity android:name="co.avalinejad.iq.co.avalinejad.iq.activity.SplashActivity1" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_notifications" />
 
-        <activity android:name="com.mohsen.speedmeter.activity.LawsActivity" />
-        <activity android:name="com.mohsen.speedmeter.activity.InnerPageActivity" />
-        <activity android:name="com.mohsen.speedmeter.activity.IntroActivity" />
-        <activity android:name="com.mohsen.speedmeter.activity.MainActivity" />
+        <activity android:name="co.avalinejad.iq.activity.LawsActivity" />
+        <activity android:name="co.avalinejad.iq.activity.InnerPageActivity" />
+        <activity android:name="co.avalinejad.iq.activity.IntroActivity" />
+        <activity android:name="co.avalinejad.iq.activity.MainActivity" />
         <activity
-            android:name="com.mohsen.speedmeter.activity.LoginActivity"
+            android:name="co.avalinejad.iq.activity.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.mohsen.speedmeter.activity.SpeedMeterActivity"/>
+        <activity android:name="co.avalinejad.iq.activity.SpeedMeterActivity"/>
     </application>
 
 </manifest>
