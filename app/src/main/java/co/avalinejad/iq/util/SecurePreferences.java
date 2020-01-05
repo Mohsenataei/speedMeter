@@ -55,6 +55,7 @@ public class SecurePreferences {
     private static final String KEY_TRANSFORMATION = "AES/ECB/PKCS5Padding";
     private static final String SECRET_KEY_HASH_TRANSFORMATION = "SHA-256";
     private static final String CHARSET = "UTF-8";
+    private static final String LAST_RATE_US_DIALOG = "last rate us dialog";
 
     private final boolean encryptKeys;
     private final Cipher writer;
@@ -241,4 +242,10 @@ public class SecurePreferences {
     private static SecurePreferences getSecurePreferences(Context context) {
         return new SecurePreferences(context, "shera-preferences", "S@met@pSecretKey#$197%$^=", true);
     }
+
+
+    public static void setLastRateUsDialog(Context context, long timeStamp){
+
+    }
+
 }

@@ -9,7 +9,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-kapt'
 
 android {
-    flavorDimensions "version"
+    flavorDimensions "version" , "suffix"
     productFlavors {
         Irancell {
             dimension "version"
@@ -17,6 +17,29 @@ android {
 
         MCI {
             dimension "version"
+        }
+
+        v1 {
+            dimension "suffix"
+            versionNameSuffix "-speed-meter-reza1"
+        }
+
+        v2 {
+            dimension "suffix"
+            versionNameSuffix "-speed-meter-reza2"
+        }
+
+        v3 {
+            dimension "suffix"
+            versionNameSuffix "-speed-meter-reza3"
+        }
+        v4 {
+            dimension "suffix"
+            versionNameSuffix "-speed-meter-reza4"
+        }
+        v5 {
+            dimension "suffix"
+            versionNameSuffix "-speed-meter-reza5"
         }
     }
 
@@ -38,7 +61,7 @@ android {
             versionNameSuffix '.debug'
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -89,5 +112,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.2.1'
 
     implementation 'com.batch.android:batch-sdk:1.14.2'
-    implementation 'com.google.firebase:firebase-messaging:20.0.1'
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'
+    implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    implementation 'com.stepstone.apprating:app-rating:2.3.1'
+
 }

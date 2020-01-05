@@ -6,22 +6,39 @@ import android.os.Bundle;
 import androidx.core.app.ActivityCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import co.avalinejad.iq.BuildConfig
-
-
+import com.google.android.gms.ads.MobileAds
 import co.avalinejad.iq.network.RetrofitSingleton
 import co.avalinejad.iq.R
+import com.google.android.gms.ads.AdRequest
+import kotlinx.android.synthetic.main.activity_new_speed_meter.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
+
 class NewSpeedMeter : AppCompatActivity() , ActivityCompat.OnRequestPermissionsResultCallback{
     lateinit var navController: NavController
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         checkForUpdate()
+
         setContentView(R.layout.activity_new_speed_meter)
+        MobileAds.initialize(this,"ca-app-pub-8616739363688136~4130606453")
+
+        val adRequest = AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build()
+//        val adRequest = AdRequest.Builder()
+//            .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+//            .build()
+
+        // Start loading the ad in the background.
+        ad_view.loadAd(adRequest)
+
+       // ad_view1.loadAd(adRequest)
+
 
 //        val fragmentManager  = supportFragmentManager
 //        val fragmentTransaction = fragmentManager.beginTransaction()
@@ -52,5 +69,21 @@ class NewSpeedMeter : AppCompatActivity() , ActivityCompat.OnRequestPermissionsR
                 override fun onFailure(call: Call<co.avalinejad.iq.component.update.Repo.model.UpdateResult>, t: Throwable) {}
             })
 
+    }
+    public override fun onPause() {
+        ad_view.pause()
+        super.onPause()
+    }
+
+    // Called when returning to the activity
+    public override fun onResume() {
+        super.onResume()
+        ad_view.resume()
+    }
+
+    // Called before the activity is destroyed
+    public override fun onDestroy() {
+        ad_view.destroy()
+        super.onDestroy()
     }
 }
