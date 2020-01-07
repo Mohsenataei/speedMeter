@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import co.avalinejad.iq.R;
 
-public class HeadUpActivity extends AppCompatActivity {
+public class HeadUpActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

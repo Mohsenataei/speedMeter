@@ -1,0 +1,122 @@
+<resources>
+    <string name="app_name">speedmeter</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="distance">Distance</string>
+    <string name="Distance">distance</string>
+    <string name="avg_speed">average speed</string>
+    <string name="max_speed">highest speed</string>
+    <string name="speed_limit">speed limit</string>
+    <string name="access_permission_notif">please provide nesseccary accesses for this apllication</string>
+    <string name="stop">stop</string>
+    <string name="start">start</string>
+    <string name="save">save</string>
+    <string name="not_set">not set</string>
+    <string name="clip">کلیپ</string>
+    <string name="soratsanj">سرعت سنج</string>
+    <string name="favorites">علاقه مندی ها</string>
+    <string name="error_network">خطا در برقراری ارتباط با سرور</string>
+    <string name="send_to">ارسال به</string>
+    <string name="niat">نیت کنید و اشاره فرمایید</string>
+    <string name="first_question">سوال ۱ از ۴۰</string>
+    <string name="nextQuestion">بعدی</string>
+    <string name="show_result">نمایش نتایج</string>
+    <string name="first_iq_intro_page">تست هوش ریون یکی از روش‌های رایج برای اندازه‌ گیری بهره هوشی در جهان می باشد.
+        سالیان متمادی است که در ایران نیز از تست هوش ریون به منظور سنجش بهره هوش دانش آموزان در مقاطع مختلف تحصیلی
+        استفاده می شود.
+    </string>
+    <string name="second_iq_intro">این تست دارای ۴۰ سؤال تصویری سیاه و سفید است. نحوه پاسخگویی به سوالات آزمون هوش ریون
+        به این صورت است که می بایست شکل ارائه شده در بالای تصویر به وسیله ی یکی از ۶ یا ۸ گزینه پایین تصویر تکمیل شود.
+    </string>
+    <string name="about_test">توصیف آزمون</string>
+    <string name="third_iq_intro">افراد با دادن تست هوش تصویری ریون براساس امتیاز یا بهره هوشی یا همان iq ای که بدست می
+        آورند در 7 طبقه تقسیم می شوند
+    </string>
+    <string name="test_res">خروجی آزمون</string>
+    <string name="start_test">شروع آزمون</string>
+    <string name="forth_iq_intro">بر اساس این آزمون همه افراد در ۷ طبقه مختلف جای می گیرند که شامل موارد زیر می باشد
+        :\n\n ۱) طبقه ممتاز و
+        نابغه \n\n ۲) بر هوش \n\n ۳) باهوش \n\n ۴) متوسط \n\n ۵) ضعیف \n\n ۶) مرزی \n\n ۷) عقب مانده و مرزی ضعیف
+    </string>
+    <string name="iq_test">تست IQ</string>
+    <string name="your_point">امتیاز شما</string>
+    <string name="test_result">نتیجه آزمون</string>
+    <string name="suggest_to_use_app">من سرعت و مسافت را با این اپلیکیشن ثبت می کنم به شما هم توصیه می کنم</string>
+    <string name="favorite_empty_alert">لیست علاقمندی های شما خالی می باشد.در این بخش می توانید کلیپ هایی که به علاقه
+        مندی ها افزوده اید را ببینید
+    </string>
+    <string name="test_hoosh">علمی و سرگرمی</string>
+    <string name="test_raven">تست هوش تصویری (IQ)</string>
+    <string name="previousQuestion">قبلی</string>
+    <string name="firstEvaluate">نابغه</string>
+    <string name="secondEvaluate">برهوش</string>
+    <string name="thirdEvaluate">باهوش</string>
+    <string name="fourthEvaluate">متوسط</string>
+    <string name="fifthEvaluate">ضعیف</string>
+    <string name="sixthEvaluate">مرزی</string>
+    <string name="seventhEvaluate">عقب مانده</string>
+    <string name="without_limit">speed limit</string>
+    <string name="topTitle">%d از %d</string>
+    <string name="earthquakeMagLabel">ریشتر</string>
+    <string name="earthquakeDep">عمق %d کیلومتر</string>
+    <string name="earthquake">لرزه نگار</string>
+    <string name="contents">مطالب</string>
+    <string name="haghayegheElmi">حقایق علمی</string>
+    <string name="tests">تست ها</string>
+    <string name="hafez">فال حافظ</string>
+    <string name="speed_meter">سرعت سنج</string>
+
+    <string name="ok">تائید</string>
+    <string name="laws_features_title">امکانات اپلیکیشن سرعت سنج</string>
+
+    <string name="laws_feature1">- نوتیفیکیشن هنگام وقوع زلزله در نزدیکی شما</string>
+    <string name="laws_feature2">- فال حافظ</string>
+    <string name="laws_feature3">- سرعت سنج ماشین</string>
+    <string name="laws_feature4">- تست IQ</string>
+    <string name="laws_feature5">- مطالب علمی مفید</string>
+    <string name="laws_final_description">هزینه روزانه عضویت در سرویس پانصد تومان است که هزینه سرویس مشترکین اعتباری به
+        شکل کسر از اعتبار سیم کارت و برای مشترکین دائمی روی هزینه قبض اعمال میشود.
+    </string>
+    <string name="laws_title">شرایط سرویس</string>
+    <string name="laws_phone">شماره پشتیبانی : ۲۶۲۹۱۶۳۲-۰۲۱</string>
+
+    <string name="laws_email">ایمیل: acc.tookan@gmail.com</string>
+
+    <string name="i_agree_link">با شرایط سرویس موافقم</string>
+
+    <string name="in_vehicle">In a vehicle</string>
+    <string name="on_bicycle">On a bicycle</string>
+    <string name="on_foot">On foot</string>
+    <string name="running">Running</string>
+    <string name="still">Still</string>
+    <string name="tilting">Tilting</string>
+    <string name="unknown">Unknown activity</string>
+    <string name="walking">Walking</string>
+    <string name="unidentifiable_activity">Unidentifiable activity: %1$d</string>
+    <string name="unsub">لغو اشتراک</string>
+    <string name="educational">آموزشی زلزله</string>
+    <string name="login_message_1" />
+    <string name="login_message_2" />
+
+
+    <string name="splash2">اپلیکیشن سرعت سنج که ارائه دهنده آن شرکت توکان مهام فن است، به کمک این برنامه می توانید در هر جایی که هستید سرعت حرکت خود را بسنجید. کار با این برنامه بسیار آسان است. کافیست برنامه را اجرا کرده و ان را روی داشبورد خودروی خود قرار دهید نور صفحه روی شیشه خودرو می افتد و می توانید سرعت حرکت خود را ببینید
+    </string>
+    <string name="login_message">عضویت در سرعت سنج با تعرفه روزانه پانصد تومان</string>
+    <string name="articles">مقالات</string>
+    <string name="back_again_to_exist">دکمه بازگشت را دوباره فشار دهید.</string>
+
+    <string name="very_bad">خیلی بد</string>
+    <string name="not_good">خوب نیست</string>
+    <string name="quite_ok">نسبتا خوب</string>
+    <string name="very_good">خیلی خوب</string>
+    <string name="excellent">بسیار عالی</string>
+    <string name="rate_us">لطفا به برنامه ما امتیاز دهید.</string>
+    <string name="plz_select_stars">لطفا با انتخاب این ستاره ها به برنامه ما امتیاز دهید.</string>
+    <string name="write_comment_here">اگر نظری دارید با ما در میان بگذارید</string>
+    <string name="please_select_language">لطفا زبان خود را انتخاب کنید</string>
+    <string name="let_s_see_how_fast_you_can_go">بزن بریم سرعت بسنجیم</string>
+    <string name="head_up">هد آپ</string>
+
+
+</resources>

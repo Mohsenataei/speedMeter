@@ -11,7 +11,7 @@ const val fragName = "FRAGMENT_NAME"
 const val fragExtraName = "FRAGMENT_EXTRA_DATA_NAME"
 const val fragExtraValueTag = "FRAGMENT_EXTRA_DATA_TAG"
 
-class InnerPageActivity : AppCompatActivity() {
+class InnerPageActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

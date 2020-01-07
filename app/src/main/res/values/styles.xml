@@ -16,6 +16,17 @@
         <item name="android:layoutDirection"
             tools:targetApi="JELLY_BEAN_MR1">ltr</item>
     </style>
+    <style name="MyDialogSlideHorizontalAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_left</item>
+        <item name="android:windowExitAnimation">@anim/slide_right</item>
+    </style>
+
+    <style name="selectLanStyle">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
+
 
     <style name="TextView">
         <item name="fontFamily">@font/main_font_family</item>

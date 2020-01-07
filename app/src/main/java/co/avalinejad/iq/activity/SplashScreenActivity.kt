@@ -1,35 +1,86 @@
 package co.avalinejad.iq.activity
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import co.avalinejad.iq.R
+import co.avalinejad.iq.SpeedMeterApplication
+import co.avalinejad.iq.fragment.SelectLanguageDialogFragment
+import co.avalinejad.iq.util.Preferences
 import com.stepstone.apprating.AppRatingDialog
+import com.stepstone.apprating.listener.RatingDialogListener
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 
-class SplashScreenActivity : AppCompatActivity() {
+class SplashScreenActivity : BaseActivity(), RatingDialogListener {
+    override fun onPositiveButtonClicked(rate: Int, comment: String) {
+        Toast.makeText(
+            this@SplashScreenActivity,
+            "Rate : $rate\nComment : $comment",
+            Toast.LENGTH_LONG
+        ).show()
+        Preferences.getInstance(this@SplashScreenActivity).resetLaunchTimes()
+    }
 
-   // val fromButtom? : Animation = null
+    override fun onNegativeButtonClicked() {
+        Toast.makeText(this@SplashScreenActivity, "Negative button clicked", Toast.LENGTH_LONG)
+            .show()
+    }
+
+    override fun onNeutralButtonClicked() {
+        Toast.makeText(this@SplashScreenActivity, "Neutral button clicked", Toast.LENGTH_LONG)
+            .show()
+    }
+    // val fromButtom? : Animation = null
+
+    val res = SpeedMeterApplication.instance.resources
+    lateinit var lanDialog: SelectLanguageDialogFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         val animation: Animation
         val animation1: Animation
+        val prefs = Preferences.getInstance(this)
+        val launch = prefs.getLaunchTimes()
+        if (prefs.getLan() == ""){
+            // show select language dailog
+            lanDialog = SelectLanguageDialogFragment(this)
+            lanDialog.show()
+
+        }
+        Log.d("rateUs", "this application has bees launched $launch till now.")
+        if (prefs.getLaunchTimes() < 5) {
+            //initShowRateUsDialog()
+            //startActivity(Intent(Intent.ACTION_VIEW,Uri.parse("market://details?id=$packageName")))
+//            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)))
+            prefs.resetLaunchTimes()
+            Log.d(
+                "rateUs",
+                "launched times reset to 0 and prefs.launchtimes is : ${prefs.getLaunchTimes()}"
+            )
+        } else {
+            Log.d("rateUs","times before ${prefs.getLaunchTimes()}")
+            prefs.incLaunchTimes()
+            Log.d(
+                "rateUs", "launch times increased. times after : ${prefs.getLaunchTimes()}"
+            )
+
+        }
 
         animation = AnimationUtils.loadAnimation(this, R.anim.slide_from_bottom)
         splash_screen_button.animation = animation
-        splash_Screen_image_view.animation = AnimationUtils.loadAnimation(this,R.anim.slide_from_top)
-        splash_screen_button.setOnClickListener{
-            startActivity(Intent(this,NewSpeedMeter::class.java))
+        splash_Screen_image_view.animation =
+            AnimationUtils.loadAnimation(this, R.anim.slide_from_top)
+        splash_screen_button.setOnClickListener {
+            startActivity(Intent(this, NewSpeedMeter::class.java))
             finish()
         }
     }
-
-
-
 
 
     private fun initShowRateUsDialog() {
@@ -46,18 +97,18 @@ class SplashScreenActivity : AppCompatActivity() {
                     res.getString(R.string.excellent)
                 )
             )
-            .setDefaultRating(2)
+            .setDefaultRating(3)
             .setTitle(res.getString(R.string.rate_us))
             .setDescription(res.getString(R.string.plz_select_stars))
-            .setStarColor(R.color.gray)
+            .setStarColor(R.color.first_result)
             .setNoteDescriptionTextColor(R.color.color_tab)
-            .setTitleTextColor(R.color.bmi_more_than_40)
-            .setDescriptionTextColor(R.color.bmi_below_18_5)
-            .setCommentTextColor(R.color.bmi_18_5_to_20)
+            .setTitleTextColor(R.color.second_result)
+            .setDescriptionTextColor(R.color.third_result)
+            .setCommentTextColor(R.color.forth_result)
             .setCommentBackgroundColor(R.color.colorPrimaryDark)
             .setWindowAnimation(R.style.MyDialogSlideHorizontalAnimation)
             .setHint(res.getString(R.string.write_comment_here))
-            .setHintTextColor(R.color.hintTextColor)
+            .setHintTextColor(R.color.fifth_result)
             .setCancelable(false)
             .setCanceledOnTouchOutside(false)
             .create(this@SplashScreenActivity)

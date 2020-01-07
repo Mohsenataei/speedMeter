@@ -29,7 +29,7 @@ import retrofit2.Response
 import java.util.HashMap
 import okhttp3.MultipartBody
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

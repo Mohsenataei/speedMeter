@@ -35,7 +35,7 @@ const val ARG_LIMIT = "limit"
 const val ARG_SHOW_TYPE = "showType"
 const val MY_PERMISSIONS_ACCESS_FINE_LOCATION = 1
 
-class SpeedMeterActivity : AppCompatActivity(), LocationListener, GoogleApiClient.OnConnectionFailedListener,
+class SpeedMeterActivity : BaseActivity(), LocationListener, GoogleApiClient.OnConnectionFailedListener,
     GoogleApiClient.ConnectionCallbacks {
 
     lateinit var adapter: SpeedMeterPagerAdapter

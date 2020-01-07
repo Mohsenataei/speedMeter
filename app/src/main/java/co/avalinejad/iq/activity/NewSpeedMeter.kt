@@ -17,7 +17,7 @@ import retrofit2.Response
 
 
 
-class NewSpeedMeter : AppCompatActivity() , ActivityCompat.OnRequestPermissionsResultCallback{
+class NewSpeedMeter : BaseActivity() , ActivityCompat.OnRequestPermissionsResultCallback{
     lateinit var navController: NavController
 
 

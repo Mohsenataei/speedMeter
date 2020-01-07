@@ -1,6 +1,11 @@
 package co.avalinejad.iq
 
+import android.annotation.SuppressLint
 import android.app.Application
+import android.os.Build
+import android.util.Log
+import android.widget.Toast
+import co.avalinejad.iq.fragment.SelectLanguageDialogFragment
 import com.batch.android.Batch
 import com.batch.android.BatchActivityLifecycleHelper
 import com.batch.android.Config
@@ -8,8 +13,8 @@ import com.batch.android.Config
 
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.jaredrummler.android.device.DeviceName
-import co.avalinejad.iq.activity.LoginActivity.Companion.CHANNEL
 import co.avalinejad.iq.network.RetrofitSingleton
+import co.avalinejad.iq.util.Preferences
 import co.avalinejad.iq.util.Util.getDeviceName
 import co.avalinejad.iq.util.Util.getIPAddress
 import retrofit2.Call
@@ -20,22 +25,52 @@ import java.util.*
 private val SHARED_PRE_KEY_ALREADY_SENT = "already_sent"
 val APP_NAME = "sorat senj" //used for tracking installation
 
-class SpeedMeterApplication : Application() {
+open class SpeedMeterApplication : Application() {
 
+    lateinit var lanDialog : SelectLanguageDialogFragment
 
     companion object {
-        lateinit var appContext: Application
-
+        //lateinit var appContext: Application
+        lateinit var instance: SpeedMeterApplication
         private lateinit var appInstall: co.avalinejad.iq.model.AppInstall
+
 
         var isDataSentToServer = false
     }
+     @SuppressLint("DefaultLocale")
+     private fun setAppLocale(localeCode: String){
+         Log.d("language" , "language changed to $localeCode")
+         val dm = resources.displayMetrics
+         val config = resources.configuration
+         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN){
+             config.setLocale(Locale(localeCode.toLowerCase()))
+         }else {
+             config.locale = Locale(localeCode.toLowerCase())
+         }
+         resources.updateConfiguration(config, dm)
+     }
 
     override fun onCreate() {
         super.onCreate()
-        appContext = this@SpeedMeterApplication
+        //appContext = this@SpeedMeterApplication
+        instance = this
+        val lan = Preferences.getInstance(SpeedMeterApplication.instance.applicationContext).getLan()
+        Log.d("language", "default language is : $lan")
 
-        Batch.setConfig(Config(co.avalinejad.iq.BuildConfig.channelName))
+        if (lan == ""){
+            var lang = ""
+            lanDialog = SelectLanguageDialogFragment(applicationContext, onResult = {
+                //                setAppLocale(it)
+                Log.d("language", "lancode received $it")
+                Toast.makeText(applicationContext,"lancode received $it", Toast.LENGTH_SHORT).show()
+                lang = it
+//                lanDialog.dismiss()
+            })
+            setAppLocale(lang)
+        }
+
+
+        Batch.setConfig(Config(BuildConfig.channelName))
         registerActivityLifecycleCallbacks(BatchActivityLifecycleHelper())
 
         FirebaseAnalytics.getInstance(this)
@@ -78,7 +113,6 @@ class SpeedMeterApplication : Application() {
 
     private fun sendAppInstall() {
         appInstall.appName = APP_NAME
-        appInstall.channel = CHANNEL
         appInstall.androidId = co.avalinejad.iq.util.InstallationHelper.getAndroidId(this)
         appInstall.installationId = co.avalinejad.iq.util.InstallationHelper.getInstallationId(this)
         appInstall.initUserInfo()
@@ -95,4 +129,5 @@ class SpeedMeterApplication : Application() {
             }
         })
     }
+
 }
