@@ -2,9 +2,9 @@ package co.avalinejad.iq
 
 import android.annotation.SuppressLint
 import android.app.Application
+import android.content.res.Configuration
 import android.os.Build
 import android.util.Log
-import android.widget.Toast
 import co.avalinejad.iq.fragment.SelectLanguageDialogFragment
 import com.batch.android.Batch
 import com.batch.android.BatchActivityLifecycleHelper
@@ -14,9 +14,9 @@ import com.batch.android.Config
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.jaredrummler.android.device.DeviceName
 import co.avalinejad.iq.network.RetrofitSingleton
-import co.avalinejad.iq.util.Preferences
 import co.avalinejad.iq.util.Util.getDeviceName
 import co.avalinejad.iq.util.Util.getIPAddress
+import com.franmontiel.localechanger.LocaleChanger
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -54,20 +54,26 @@ open class SpeedMeterApplication : Application() {
         super.onCreate()
         //appContext = this@SpeedMeterApplication
         instance = this
-        val lan = Preferences.getInstance(SpeedMeterApplication.instance.applicationContext).getLan()
-        Log.d("language", "default language is : $lan")
+//        val lan = Preferences.getInstance(SpeedMeterApplication.instance.applicationContext).getLan()
+//        Log.d("language", "default language is : $lan")
+//
+//        if (lan == ""){
+//            var lang = ""
+//            lanDialog = SelectLanguageDialogFragment(applicationContext, onResult = {
+//                //                setAppLocale(it)
+//                Log.d("language", "lancode received $it")
+//                Toast.makeText(applicationContext,"lancode received $it", Toast.LENGTH_SHORT).show()
+//                lang = it
+////                lanDialog.dismiss()
+//            })
+//            setAppLocale(lang)
+//        }
+        val supportedLocales = listOf(
+            Locale("en", "US"),
+            Locale("fa", "IR")
+        )
 
-        if (lan == ""){
-            var lang = ""
-            lanDialog = SelectLanguageDialogFragment(applicationContext, onResult = {
-                //                setAppLocale(it)
-                Log.d("language", "lancode received $it")
-                Toast.makeText(applicationContext,"lancode received $it", Toast.LENGTH_SHORT).show()
-                lang = it
-//                lanDialog.dismiss()
-            })
-            setAppLocale(lang)
-        }
+        LocaleChanger.initialize(applicationContext, supportedLocales)
 
 
         Batch.setConfig(Config(BuildConfig.channelName))
@@ -94,6 +100,11 @@ open class SpeedMeterApplication : Application() {
        // if (isMCI().not())
          //   CharkhoneSdkApp.initSdk(this, getSecrets())
 
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        LocaleChanger.onConfigurationChanged()
     }
 
 

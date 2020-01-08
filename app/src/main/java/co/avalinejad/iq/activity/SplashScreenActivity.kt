@@ -123,8 +123,8 @@ class SplashScreenActivity : AppCompatActivity(), RatingDialogListener {
 
     override fun attachBaseContext(newBase: Context) {
 //        Toast.makeText(newBase,"just for test.", Toast.LENGTH_SHORT).show()
-        val context = NewContextWrapper.wrap(newBase,"fa")
-        super.attachBaseContext(context)
+        //val context = NewContextWrapper.wrap(newBase,"fa")
+        super.attachBaseContext(newBase)
     }
 
     private fun updateBaseContextLocale(context: Context): Context {

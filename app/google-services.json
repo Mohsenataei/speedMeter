@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "370339357674",
+    "firebase_url": "https://zelzele-d9ab6.firebaseio.com",
+    "project_id": "zelzele-d9ab6",
+    "storage_bucket": "zelzele-d9ab6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370339357674:android:3f8d1300e2ec105c",
+        "android_client_info": {
+          "package_name": "co.avalinejad.iq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370339357674-jqg0p51la54ivhsrq8tul2sot75cjpps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiOZ7p97r2qzZl53_Ppny71IZHQZuf00I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370339357674-jqg0p51la54ivhsrq8tul2sot75cjpps.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,6 @@
 package co.avalinejad.iq.fragment
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.content.res.Configuration
@@ -13,6 +14,8 @@ import java.util.*
 import android.os.Build
 import co.avalinejad.iq.SpeedMeterApplication
 import co.avalinejad.iq.util.Preferences
+import com.franmontiel.localechanger.LocaleChanger
+import com.franmontiel.localechanger.utils.ActivityRecreationHelper
 
 
 class SelectLanguageDialogFragment(
@@ -29,9 +32,12 @@ class SelectLanguageDialogFragment(
 
         val resources = SpeedMeterApplication.instance.resources
         enBtn.setOnClickListener {
-            Log.d("Language", "English selected.")
-            setAppLocale("en")
-            changeAppLocale("en")
+//            Log.d("Language", "English selected.")
+//            setAppLocale("en")
+//            changeAppLocale("en")
+            LocaleChanger.setLocale(Locale("en"))
+            ActivityRecreationHelper.recreate(context as Activity,false)
+
 
 //            val locale2 = Locale("fr")
 //            Locale.setDefault(locale2)
@@ -64,9 +70,12 @@ class SelectLanguageDialogFragment(
         }
 
         faBtn.setOnClickListener {
-            Log.d("Language", "English selected.")
-            setAppLocale("fa")
-            changeAppLocale("fa")
+            Log.d("Language", "Farsi selected.")
+
+            LocaleChanger.setLocale(Locale("fa"))
+            ActivityRecreationHelper.recreate(context as Activity,false)
+//            setAppLocale("fa")
+//            changeAppLocale("fa")
 //            val locale2 = Locale("fr")
 //            Locale.setDefault(locale2)
 //            val config2 = Configuration()
@@ -96,9 +105,9 @@ class SelectLanguageDialogFragment(
 //                Preferences.getInstance(context).setLan("fa")
 //
 //            }
-            Log.d("Language", "farsi selected.")
-            onResult?.invoke("fa")
-            dismiss()
+//            Log.d("Language", "farsi selected.")
+//            onResult?.invoke("fa")
+//            dismiss()
         }
     }
     private fun setAppLocale(localeCode: String){

@@ -8,6 +8,8 @@ import co.avalinejad.iq.fragment.SelectLanguageDialogFragment
 import co.avalinejad.iq.util.NewContextWrapper
 import android.os.Build
 import android.annotation.TargetApi
+import co.avalinejad.iq.util.MyContextWrapper
+import com.franmontiel.localechanger.LocaleChanger
 import java.util.*
 
 
@@ -32,7 +34,8 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(base: Context) {
-        super.attachBaseContext(updateBaseContextLocale(this))
+        val newBase = LocaleChanger.configureBaseContext(base)
+        super.attachBaseContext(newBase)
     }
 
     private fun updateBaseContextLocale(context: Context):Context{
