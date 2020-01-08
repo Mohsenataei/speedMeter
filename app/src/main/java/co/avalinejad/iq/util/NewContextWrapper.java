@@ -14,7 +14,6 @@ public class NewContextWrapper extends ContextWrapper {
         super(base);
     }
 
-    @SuppressWarnings("deprecation")
     public static ContextWrapper wrap(Context context, String language) {
         Configuration config = context.getResources().getConfiguration();
         Locale sysLocale = null;

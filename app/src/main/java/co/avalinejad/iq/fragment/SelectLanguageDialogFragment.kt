@@ -31,6 +31,8 @@ class SelectLanguageDialogFragment(
         enBtn.setOnClickListener {
             Log.d("Language", "English selected.")
             setAppLocale("en")
+            changeAppLocale("en")
+
 //            val locale2 = Locale("fr")
 //            Locale.setDefault(locale2)
 //            val config2 = Configuration()
@@ -64,6 +66,7 @@ class SelectLanguageDialogFragment(
         faBtn.setOnClickListener {
             Log.d("Language", "English selected.")
             setAppLocale("fa")
+            changeAppLocale("fa")
 //            val locale2 = Locale("fr")
 //            Locale.setDefault(locale2)
 //            val config2 = Configuration()
@@ -101,6 +104,7 @@ class SelectLanguageDialogFragment(
     private fun setAppLocale(localeCode: String){
         Log.d("language" , "language changed to $localeCode")
         val res = SpeedMeterApplication.instance.resources
+        SpeedMeterApplication.instance.baseContext
         val dm = res.displayMetrics
         val config = res.configuration
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN){
@@ -109,5 +113,13 @@ class SelectLanguageDialogFragment(
             config.locale = Locale(localeCode.toLowerCase())
         }
         res.updateConfiguration(config,dm)
+    }
+
+    private fun changeAppLocale(lan: String){
+        val locale = Locale(lan)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        SpeedMeterApplication.instance.baseContext.createConfigurationContext(config)
     }
 }

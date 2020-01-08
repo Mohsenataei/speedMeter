@@ -1,7 +1,9 @@
 package co.avalinejad.iq.activity
 
+import android.annotation.TargetApi
+import android.content.Context
 import android.content.Intent
-import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,12 +13,16 @@ import android.widget.Toast
 import co.avalinejad.iq.R
 import co.avalinejad.iq.SpeedMeterApplication
 import co.avalinejad.iq.fragment.SelectLanguageDialogFragment
+import co.avalinejad.iq.util.NewContextWrapper
 import co.avalinejad.iq.util.Preferences
 import com.stepstone.apprating.AppRatingDialog
 import com.stepstone.apprating.listener.RatingDialogListener
 import kotlinx.android.synthetic.main.activity_splash_screen.*
+import java.util.*
 
-class SplashScreenActivity : BaseActivity(), RatingDialogListener {
+class SplashScreenActivity : AppCompatActivity(), RatingDialogListener {
+    private lateinit var selectLanguageDialogFragment: SelectLanguageDialogFragment
+    var lan = ""
     override fun onPositiveButtonClicked(rate: Int, comment: String) {
         Toast.makeText(
             this@SplashScreenActivity,
@@ -47,7 +53,7 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
         val animation1: Animation
         val prefs = Preferences.getInstance(this)
         val launch = prefs.getLaunchTimes()
-        if (prefs.getLan() == ""){
+        if (prefs.getLan() == "") {
             // show select language dailog
             lanDialog = SelectLanguageDialogFragment(this)
             lanDialog.show()
@@ -64,7 +70,7 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
                 "launched times reset to 0 and prefs.launchtimes is : ${prefs.getLaunchTimes()}"
             )
         } else {
-            Log.d("rateUs","times before ${prefs.getLaunchTimes()}")
+            Log.d("rateUs", "times before ${prefs.getLaunchTimes()}")
             prefs.incLaunchTimes()
             Log.d(
                 "rateUs", "launch times increased. times after : ${prefs.getLaunchTimes()}"
@@ -114,5 +120,48 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
             .create(this@SplashScreenActivity)
             .show()
     }
+
+    override fun attachBaseContext(newBase: Context) {
+//        Toast.makeText(newBase,"just for test.", Toast.LENGTH_SHORT).show()
+        val context = NewContextWrapper.wrap(newBase,"fa")
+        super.attachBaseContext(context)
+    }
+
+    private fun updateBaseContextLocale(context: Context): Context {
+        promptUserToSelectLanguage(context)
+
+        val locale = Locale(lan)
+        Locale.setDefault(locale)
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.N) {
+            return updateResourcesLocale(context, locale)
+        }
+        return updateResourcesLocaleLegacy(context, locale)
+    }
+
+    private fun promptUserToSelectLanguage(context: Context) {
+        selectLanguageDialogFragment = SelectLanguageDialogFragment(context, onResult = {
+            lan = it
+            Toast.makeText(context, "selected language is : $it", Toast.LENGTH_SHORT).show()
+        })
+    }
+
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun updateResourcesLocale(context: Context, locale: Locale): Context {
+        val configuration = context.resources.configuration
+        configuration.setLocale(locale)
+        return context.createConfigurationContext(configuration)
+    }
+
+
+    @SuppressWarnings("deprecation")
+    private fun updateResourcesLocaleLegacy(context: Context, locale: Locale): Context {
+        val resources = context.resources
+        val configuration = resources.configuration
+        configuration.locale = locale
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+        return context
+    }
+
 
 }
