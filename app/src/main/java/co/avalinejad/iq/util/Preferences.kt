@@ -20,8 +20,6 @@ class Preferences (context: Context){
             Context.MODE_PRIVATE
         )
     }
-
-
     fun setLan(lan: String) = languagePrefrences.edit().putString(SELECTED_LANGUAGE,lan).apply()
     fun getLan() = languagePrefrences.getString(SELECTED_LANGUAGE, "")
 
@@ -40,6 +38,16 @@ class Preferences (context: Context){
         Log.d("Preferences", "resetLaunchTimes invoked times is : ${getLaunchTimes()}")
 
     }
+
+
+    fun setLaunchesBeforePrompt(launched: Int) = launchPreferences.edit().putInt("launchedBeforePrompt",launched).apply()
+
+    fun setLaunchesBeforePrompt() = launchPreferences.getInt("launchedBeforePrompt",10)
+
+
+    fun isSubmitRateOnGoogle()= launchPreferences.getBoolean("googleRate", false)
+
+    fun submitRateOnGoogle() = launchPreferences.edit().putBoolean("googleRate",true).apply()
 
 
 

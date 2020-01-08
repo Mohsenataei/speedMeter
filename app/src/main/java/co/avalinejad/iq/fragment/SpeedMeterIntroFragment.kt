@@ -15,6 +15,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -25,6 +26,7 @@ import co.avalinejad.iq.activity.fragExtraValueTag
 import co.avalinejad.iq.activity.fragName
 import co.avalinejad.iq.util.HEAD_UP_SHOW
 import co.avalinejad.iq.util.NORMAL_SHOW
+import co.avalinejad.iq.util.Preferences
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -42,6 +44,7 @@ class SpeedMeterIntroFragment : Fragment(), CompoundButton.OnCheckedChangeListen
     lateinit var navController: NavController
     private lateinit var mInterstitialAd1: InterstitialAd
     private lateinit var mInterstitialAd2: InterstitialAd
+    private lateinit var selectLang : SelectLanguageDialogFragment
 
 
     companion object {
@@ -75,9 +78,6 @@ class SpeedMeterIntroFragment : Fragment(), CompoundButton.OnCheckedChangeListen
 
         prepareAd(mInterstitialAd1)
         prepareAd(mInterstitialAd2)
-
-
-
 
         editor = activity!!.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE)
 
@@ -126,6 +126,7 @@ class SpeedMeterIntroFragment : Fragment(), CompoundButton.OnCheckedChangeListen
             showInterstitial1(mInterstitialAd2, NORMAL_SHOW)
             setSpeedToSharedPref()
         }
+
 
     }
 

@@ -21,6 +21,8 @@ val HEAD_UP_SHOW = "HEAD_UP_SHOW"
 
 const val USER = "USER_KYE"
 const val SELECTED_LANGUAGE = "Locale.Helper.Selected.Language"
+var LAUNCHES_BEFORE_RATE_US_DIALOG = 10
+
 
 const val CHARKHOONE_PACKAGE = "CHARKHOONE_PACKAGE"
 const val CHARKHOONE_SKU = "CHARKHOONE_SKU"

@@ -3,8 +3,8 @@ package co.avalinejad.iq.activity
 import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.animation.Animation
@@ -13,7 +13,7 @@ import android.widget.Toast
 import co.avalinejad.iq.R
 import co.avalinejad.iq.SpeedMeterApplication
 import co.avalinejad.iq.fragment.SelectLanguageDialogFragment
-import co.avalinejad.iq.util.NewContextWrapper
+import co.avalinejad.iq.util.LAUNCHES_BEFORE_RATE_US_DIALOG
 import co.avalinejad.iq.util.Preferences
 import com.stepstone.apprating.AppRatingDialog
 import com.stepstone.apprating.listener.RatingDialogListener
@@ -28,7 +28,10 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
             "Rate : $rate\nComment : $comment",
             Toast.LENGTH_LONG
         ).show()
-        Preferences.getInstance(this@SplashScreenActivity).resetLaunchTimes()
+        if (rate >= 3  ){
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
+            Preferences.getInstance(this@SplashScreenActivity).submitRateOnGoogle()
+        }
     }
 
     override fun onNegativeButtonClicked() {
@@ -37,8 +40,9 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
     }
 
     override fun onNeutralButtonClicked() {
-        Toast.makeText(this@SplashScreenActivity, "Neutral button clicked", Toast.LENGTH_LONG)
+        Toast.makeText(this@SplashScreenActivity, "Neutral button clicked", Toast.LENGTH_LONG) // by clicking on later
             .show()
+        Preferences.getInstance(this@SplashScreenActivity).setLaunchesBeforePrompt(5)
     }
 
     val res = SpeedMeterApplication.instance.resources
@@ -49,22 +53,41 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
         setContentView(R.layout.activity_splash_screen)
         val animation: Animation
         val animation1: Animation
+
         val prefs = Preferences.getInstance(this)
-        if (Preferences.getInstance(this).getLan() == "") {
-            lanDialog = SelectLanguageDialogFragment(this, onResult = {
-                Log.d("callback", "language received.")
-                Preferences.getInstance(this).setLan(it)
-                lan = it
-                if (it == "en")
-                    updateLocale(Locale.US)
-                else
-                    updateLocale(Locale("fa"))
+        LAUNCHES_BEFORE_RATE_US_DIALOG = prefs.setLaunchesBeforePrompt()
+
+        Log.d("rateUs", "this application has bees launched ${prefs.getLaunchTimes()} till now.")
+        if (prefs.getLaunchTimes() > LAUNCHES_BEFORE_RATE_US_DIALOG && !prefs.isSubmitRateOnGoogle()){
+            initShowRateUsDialog()
+            prefs.resetLaunchTimes()
+            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)))
+            //prefs.resetLaunchTimes()
+            Log.d(
+                "rateUs",
+                "launched times reset to 0 and prefs.launchtimes is : ${prefs.getLaunchTimes()}"
+            )
+        } else {
+            Log.d("rateUs","times before ${prefs.getLaunchTimes()}")
+            prefs.incLaunchTimes()
+            Log.d(
+                "rateUs", "launch times increased. times after : ${prefs.getLaunchTimes()}"
+            )
+
+        }
+
+        selectLang.setOnClickListener {
+            selectLanguageDialogFragment = SelectLanguageDialogFragment(this,onResult = {
+                updateLocale(Locale(it))
             })
-            lanDialog.show()
+            selectLanguageDialogFragment.show()
         }
 
         animation = AnimationUtils.loadAnimation(this, R.anim.slide_from_bottom)
         splash_screen_button.animation = animation
+        selectLang.animation = AnimationUtils.loadAnimation(this,R.anim.slide_left)
+//        selectLang.animation = AnimationUtils.loadAnimation(this,R.anim.slide_right)
+
         splash_Screen_image_view.animation =
             AnimationUtils.loadAnimation(this, R.anim.slide_from_top)
         splash_screen_button.setOnClickListener {
@@ -76,9 +99,9 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
 
     private fun initShowRateUsDialog() {
         AppRatingDialog.Builder()
-            .setPositiveButtonText("Submit")
-            .setNegativeButtonText("Cancel")
-            .setNeutralButtonText("Later")
+            .setPositiveButtonText(res.getString(R.string.submit))
+            .setNegativeButtonText(res.getString(R.string.cancel))
+            .setNeutralButtonText(res.getString(R.string.later))
             .setNoteDescriptions(
                 listOf(
                     res.getString(R.string.very_bad),

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">speedmeter</string>
+    <string name="app_name">speed meter</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -8,13 +8,15 @@
     <string name="avg_speed">average speed</string>
     <string name="max_speed">highest speed</string>
     <string name="speed_limit">speed limit</string>
+    <string name="changeLan">Change Language</string>
+    <string name="selectLang">select language</string>
     <string name="access_permission_notif">please provide necessary accesses for thia application.</string>
     <string name="stop">stop</string>
     <string name="start">start</string>
     <string name="save">save</string>
     <string name="not_set">not set</string>
     <string name="clip">کلیپ</string>
-    <string name="send_to">ارسال به</string>
+    <string name="send_to">Send to</string>
     <string name="without_limit">speed limit</string>
 
     <string name="speed_meter">سرعت سنج</string>
@@ -43,7 +45,7 @@
 
     <string name="very_bad">very bad</string>
     <string name="not_good">not good</string>
-    <string name="quite_ok">quite ok</string>
+    <string name="quite_ok">quite OK</string>
     <string name="very_good">very good</string>
     <string name="excellent">excellent</string>
     <string name="rate_us">Please Rate This Application</string>
@@ -51,7 +53,12 @@
     <string name="write_comment_here">Please write your comment here …</string>
     <string name="please_select_language">Please select language</string>
     <string name="let_s_see_how_fast_you_can_go">Let\'s see how fast you can go</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="later">Later</string>
+
     <string name="head_up">Head Up</string>
+    <string name="speed_rate">KM/H</string>
 
 
 </resources>

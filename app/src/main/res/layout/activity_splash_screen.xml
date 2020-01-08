@@ -20,14 +20,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:background="@drawable/splash_screen_button_background"
+        android:id="@+id/selectLang"
+        style="@style/Button.lightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="124dp"
+        android:text="@string/selectLang"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/splash_screen_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/splash_screen_button"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:text="@string/let_s_see_how_fast_you_can_go"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:padding="4dp"
+        style="@style/Button.lightText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
