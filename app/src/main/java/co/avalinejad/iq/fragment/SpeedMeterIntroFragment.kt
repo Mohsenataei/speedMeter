@@ -153,7 +153,7 @@ class SpeedMeterIntroFragment : Fragment(), CompoundButton.OnCheckedChangeListen
             adUnitId = id
             adListener = (object : AdListener() {
                 override fun onAdLoaded() {
-                    Toast.makeText(context, "onAdLoaded()", Toast.LENGTH_SHORT).show()
+                   // Toast.makeText(context, "onAdLoaded()", Toast.LENGTH_SHORT).show()
                     Log.d("admob", "onAdLoaded()")
                     btnHeadUp.visibility = View.VISIBLE
 
@@ -161,11 +161,11 @@ class SpeedMeterIntroFragment : Fragment(), CompoundButton.OnCheckedChangeListen
 
                 override fun onAdFailedToLoad(errorCode: Int) {
                     btnHeadUp.visibility = View.VISIBLE
-                    Toast.makeText(
-                        context,
-                        "onAdFailedToLoad1() with error code: $errorCode",
-                        Toast.LENGTH_LONG
-                    ).show()
+//                    Toast.makeText(
+//                        context,
+//                        "onAdFailedToLoad1() with error code: $errorCode",
+//                        Toast.LENGTH_LONG
+//                    ).show()
                     Log.d("admob", "onAdFailedToLoad() with error code: $errorCode")
                 }
 
@@ -184,18 +184,18 @@ class SpeedMeterIntroFragment : Fragment(), CompoundButton.OnCheckedChangeListen
             adUnitId = id
             adListener = (object : AdListener() {
                 override fun onAdLoaded() {
-                    Toast.makeText(context, "onAdLoaded()", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(context, "onAdLoaded()", Toast.LENGTH_SHORT).show()
 //                    Log.d("admob", "onAdLoaded()")
                     btnSpeedMeter.visibility = View.VISIBLE
                 }
 
                 override fun onAdFailedToLoad(errorCode: Int) {
                     btnSpeedMeter.visibility = View.VISIBLE
-                    Toast.makeText(
-                        context,
-                        "onAdFailedToLoad2() with error code: $errorCode",
-                        Toast.LENGTH_LONG
-                    ).show()
+//                    Toast.makeText(
+//                        context,
+//                        "onAdFailedToLoad2() with error code: $errorCode",
+//                        Toast.LENGTH_LONG
+//                    ).show()
                     Log.d("admob", "onAdFailedToLoad() with error code: $errorCode")
                 }
 
@@ -216,7 +216,7 @@ class SpeedMeterIntroFragment : Fragment(), CompoundButton.OnCheckedChangeListen
             interstitialAd.show()
             setSpeedToSharedPref()
         } else {
-            Toast.makeText(activity, "Ad wasn't loaded.", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(activity, "Ad wasn't loaded.", Toast.LENGTH_SHORT).show()
             btnSpeedMeter.visibility = View.VISIBLE
             navigate(limit, showType)
 

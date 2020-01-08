@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import co.avalinejad.iq.R
 import co.avalinejad.iq.SpeedMeterApplication
 import co.avalinejad.iq.fragment.SelectLanguageDialogFragment
@@ -19,30 +18,32 @@ import com.stepstone.apprating.AppRatingDialog
 import com.stepstone.apprating.listener.RatingDialogListener
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import java.util.*
+import android.content.ActivityNotFoundException
 
 class SplashScreenActivity : BaseActivity(), RatingDialogListener {
     private lateinit var selectLanguageDialogFragment: SelectLanguageDialogFragment
     override fun onPositiveButtonClicked(rate: Int, comment: String) {
-        Toast.makeText(
-            this@SplashScreenActivity,
-            "Rate : $rate\nComment : $comment",
-            Toast.LENGTH_LONG
-        ).show()
-        if (rate >= 3  ){
+//        Toast.makeText(
+//            this@SplashScreenActivity,
+//            "Rate : $rate\nComment : $comment",
+//            Toast.LENGTH_LONG
+//        ).show()
+        if (rate >= 3) {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
+//            goToGooglePlay()
             Preferences.getInstance(this@SplashScreenActivity).submitRateOnGoogle()
         }
     }
 
     override fun onNegativeButtonClicked() {
-        Toast.makeText(this@SplashScreenActivity, "Negative button clicked", Toast.LENGTH_LONG)
-            .show()
+//        Toast.makeText(this@SplashScreenActivity, "Negative button clicked", Toast.LENGTH_LONG)
+//            .show()
     }
 
     override fun onNeutralButtonClicked() {
-        Toast.makeText(this@SplashScreenActivity, "Neutral button clicked", Toast.LENGTH_LONG) // by clicking on later
-            .show()
-        Preferences.getInstance(this@SplashScreenActivity).setLaunchesBeforePrompt(5)
+//        Toast.makeText(this@SplashScreenActivity, "Neutral button clicked", Toast.LENGTH_LONG) // by clicking on later
+//            .show()
+//        Preferences.getInstance(this@SplashScreenActivity).setLaunchesBeforePrompt(5)
     }
 
     val res = SpeedMeterApplication.instance.resources
@@ -58,7 +59,7 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
         LAUNCHES_BEFORE_RATE_US_DIALOG = prefs.setLaunchesBeforePrompt()
 
         Log.d("rateUs", "this application has bees launched ${prefs.getLaunchTimes()} till now.")
-        if (prefs.getLaunchTimes() > LAUNCHES_BEFORE_RATE_US_DIALOG && !prefs.isSubmitRateOnGoogle()){
+        if (prefs.getLaunchTimes() > 8 && !prefs.isSubmitRateOnGoogle()) {
             initShowRateUsDialog()
             prefs.resetLaunchTimes()
             //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)))
@@ -68,7 +69,7 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
                 "launched times reset to 0 and prefs.launchtimes is : ${prefs.getLaunchTimes()}"
             )
         } else {
-            Log.d("rateUs","times before ${prefs.getLaunchTimes()}")
+            Log.d("rateUs", "times before ${prefs.getLaunchTimes()}")
             prefs.incLaunchTimes()
             Log.d(
                 "rateUs", "launch times increased. times after : ${prefs.getLaunchTimes()}"
@@ -77,7 +78,7 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
         }
 
         selectLang.setOnClickListener {
-            selectLanguageDialogFragment = SelectLanguageDialogFragment(this,onResult = {
+            selectLanguageDialogFragment = SelectLanguageDialogFragment(this, onResult = {
                 updateLocale(Locale(it))
             })
             selectLanguageDialogFragment.show()
@@ -85,7 +86,7 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
 
         animation = AnimationUtils.loadAnimation(this, R.anim.slide_from_bottom)
         splash_screen_button.animation = animation
-        selectLang.animation = AnimationUtils.loadAnimation(this,R.anim.slide_left)
+        selectLang.animation = AnimationUtils.loadAnimation(this, R.anim.slide_left)
 //        selectLang.animation = AnimationUtils.loadAnimation(this,R.anim.slide_right)
 
         splash_Screen_image_view.animation =
@@ -111,7 +112,7 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
                     res.getString(R.string.excellent)
                 )
             )
-            .setDefaultRating(3)
+            .setDefaultRating(5)
             .setTitle(res.getString(R.string.rate_us))
             .setDescription(res.getString(R.string.plz_select_stars))
             .setStarColor(R.color.first_result)
@@ -149,7 +150,7 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
     private fun promptUserToSelectLanguage(context: Context) {
         selectLanguageDialogFragment = SelectLanguageDialogFragment(context, onResult = {
             lan = it
-            Toast.makeText(context, "selected language is : $it", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, "selected language is : $it", Toast.LENGTH_SHORT).show()
         })
     }
 
@@ -169,6 +170,29 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
         configuration.locale = locale
         resources.updateConfiguration(configuration, resources.displayMetrics)
         return context
+    }
+
+    private fun goToGooglePlay() {
+        val uri = Uri.parse("market://details?id=$packageName")
+        val goToMarket = Intent(Intent.ACTION_VIEW, uri)
+        // To count with Play market backstack, After pressing back button,
+        // to taken back to our application, we need to add following flags to intent.
+        goToMarket.addFlags(
+            Intent.FLAG_ACTIVITY_NO_HISTORY or
+                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
+                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+        )
+        try {
+            startActivity(goToMarket)
+        } catch (e: ActivityNotFoundException) {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("http://play.google.com/store/apps/details?id=$packageName")
+                )
+            )
+        }
+
     }
 
 

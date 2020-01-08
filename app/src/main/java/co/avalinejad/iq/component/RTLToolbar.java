@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import co.avalinejad.iq.R;
 
@@ -72,7 +72,7 @@ public class RTLToolbar extends RelativeLayout implements View.OnClickListener {
     public void onClick(View v) {
         if(v.getId() == R.id.toolbar_rtl_icon){
           //  ((DrawerActivity) v.getContext()).openDrawer();
-            Toast.makeText(getContext(), "clicked on drawer button", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getContext(), "clicked on drawer button", Toast.LENGTH_SHORT).show();
         }
     }
 }
