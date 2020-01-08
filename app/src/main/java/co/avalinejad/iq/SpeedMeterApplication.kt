@@ -17,6 +17,7 @@ import co.avalinejad.iq.network.RetrofitSingleton
 import co.avalinejad.iq.util.Util.getDeviceName
 import co.avalinejad.iq.util.Util.getIPAddress
 import com.franmontiel.localechanger.LocaleChanger
+import com.zeugmasolutions.localehelper.LocaleAwareApplication
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,7 +26,7 @@ import java.util.*
 private val SHARED_PRE_KEY_ALREADY_SENT = "already_sent"
 val APP_NAME = "sorat senj" //used for tracking installation
 
-open class SpeedMeterApplication : Application() {
+open class SpeedMeterApplication : LocaleAwareApplication() {
 
     lateinit var lanDialog : SelectLanguageDialogFragment
 

@@ -20,9 +20,8 @@ import com.stepstone.apprating.listener.RatingDialogListener
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import java.util.*
 
-class SplashScreenActivity : AppCompatActivity(), RatingDialogListener {
+class SplashScreenActivity : BaseActivity(), RatingDialogListener {
     private lateinit var selectLanguageDialogFragment: SelectLanguageDialogFragment
-    var lan = ""
     override fun onPositiveButtonClicked(rate: Int, comment: String) {
         Toast.makeText(
             this@SplashScreenActivity,
@@ -41,7 +40,6 @@ class SplashScreenActivity : AppCompatActivity(), RatingDialogListener {
         Toast.makeText(this@SplashScreenActivity, "Neutral button clicked", Toast.LENGTH_LONG)
             .show()
     }
-    // val fromButtom? : Animation = null
 
     val res = SpeedMeterApplication.instance.resources
     lateinit var lanDialog: SelectLanguageDialogFragment
@@ -52,30 +50,17 @@ class SplashScreenActivity : AppCompatActivity(), RatingDialogListener {
         val animation: Animation
         val animation1: Animation
         val prefs = Preferences.getInstance(this)
-        val launch = prefs.getLaunchTimes()
-        if (prefs.getLan() == "") {
-            // show select language dailog
-            lanDialog = SelectLanguageDialogFragment(this)
+        if (Preferences.getInstance(this).getLan() == "") {
+            lanDialog = SelectLanguageDialogFragment(this, onResult = {
+                Log.d("callback", "language received.")
+                Preferences.getInstance(this).setLan(it)
+                lan = it
+                if (it == "en")
+                    updateLocale(Locale.US)
+                else
+                    updateLocale(Locale("fa"))
+            })
             lanDialog.show()
-
-        }
-        Log.d("rateUs", "this application has bees launched $launch till now.")
-        if (prefs.getLaunchTimes() < 5) {
-            //initShowRateUsDialog()
-            //startActivity(Intent(Intent.ACTION_VIEW,Uri.parse("market://details?id=$packageName")))
-//            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)))
-            prefs.resetLaunchTimes()
-            Log.d(
-                "rateUs",
-                "launched times reset to 0 and prefs.launchtimes is : ${prefs.getLaunchTimes()}"
-            )
-        } else {
-            Log.d("rateUs", "times before ${prefs.getLaunchTimes()}")
-            prefs.incLaunchTimes()
-            Log.d(
-                "rateUs", "launch times increased. times after : ${prefs.getLaunchTimes()}"
-            )
-
         }
 
         animation = AnimationUtils.loadAnimation(this, R.anim.slide_from_bottom)

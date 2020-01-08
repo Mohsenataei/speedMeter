@@ -103,4 +103,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:18.3.0'
     implementation 'com.stepstone.apprating:app-rating:2.3.1'
     implementation 'com.github.franmontiel:LocaleChanger:0.9.2'
+    implementation 'com.zeugmasolutions.localehelper:locale-helper-android:1.0.2'
 }

@@ -3,16 +3,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="distance">Distance</string>
-    <string name="Distance">distance</string>
-    <string name="avg_speed">average speed</string>
-    <string name="max_speed">highest speed</string>
-    <string name="speed_limit">speed limit</string>
-    <string name="access_permission_notif">please provide nesseccary accesses for this apllication</string>
-    <string name="stop">stop</string>
-    <string name="start">start</string>
-    <string name="save">save</string>
-    <string name="not_set">not set</string>
+    <string name="distance">فاصله</string>
+    <string name="Distance">فاصله</string>
+    <string name="avg_speed">میانگین سرعت</string>
+    <string name="max_speed">بیشترین سرعت</string>
+    <string name="speed_limit">محدودیت سرعت</string>
+    <string name="access_permission_notif">لطفا دسترسی های لازم را به برنامه بدهید</string>
+    <string name="stop">توقف</string>
+    <string name="start">شروع</string>
+    <string name="save">ذخیره</string>
+    <string name="not_set">تنظیم نشده است</string>
     <string name="clip">کلیپ</string>
     <string name="soratsanj">سرعت سنج</string>
     <string name="favorites">علاقه مندی ها</string>

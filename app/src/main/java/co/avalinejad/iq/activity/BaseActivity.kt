@@ -10,32 +10,23 @@ import android.os.Build
 import android.annotation.TargetApi
 import co.avalinejad.iq.util.MyContextWrapper
 import com.franmontiel.localechanger.LocaleChanger
+import com.zeugmasolutions.localehelper.LocaleAwareCompatActivity
 import java.util.*
 
 
 
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : LocaleAwareCompatActivity() {
 
     var lan = ""
-    //    val selectLanguageDialogFragment by lazy {
-//        SelectLanguageDialogFragment(this,onResult = {
-//            lan = it
-//        })
-//    }
-     private lateinit var selectLanguageDialogFragment : SelectLanguageDialogFragment
+//     private lateinit var selectLanguageDialogFragment : SelectLanguageDialogFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        lan = "fa"
-        val selectLanguageDialogFragment = SelectLanguageDialogFragment(this, onResult = {
-            Toast.makeText(this,"selected language is : $it",Toast.LENGTH_SHORT).show()
-        })
-        selectLanguageDialogFragment.show()
     }
 
     override fun attachBaseContext(base: Context) {
-        val newBase = LocaleChanger.configureBaseContext(base)
-        super.attachBaseContext(newBase)
+        //val newBase = LocaleChanger.configureBaseContext(base)
+        super.attachBaseContext(base)
     }
 
     private fun updateBaseContextLocale(context: Context):Context{
@@ -50,10 +41,10 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun promtUserToSelectLanguage(context: Context){
-        selectLanguageDialogFragment = SelectLanguageDialogFragment(context,onResult ={
-            lan = it
-            Toast.makeText(context, "selected language is : $it",Toast.LENGTH_SHORT).show()
-        })
+//        selectLanguageDialogFragment = SelectLanguageDialogFragment(context,onResult ={
+//            lan = it
+//            Toast.makeText(context, "selected language is : $it",Toast.LENGTH_SHORT).show()
+//        })
     }
 
 

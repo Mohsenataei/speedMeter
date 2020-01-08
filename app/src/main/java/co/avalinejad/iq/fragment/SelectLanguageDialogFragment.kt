@@ -32,82 +32,13 @@ class SelectLanguageDialogFragment(
 
         val resources = SpeedMeterApplication.instance.resources
         enBtn.setOnClickListener {
-//            Log.d("Language", "English selected.")
-//            setAppLocale("en")
-//            changeAppLocale("en")
-            LocaleChanger.setLocale(Locale("en"))
-            ActivityRecreationHelper.recreate(context as Activity,false)
-
-
-//            val locale2 = Locale("fr")
-//            Locale.setDefault(locale2)
-//            val config2 = Configuration()
-//            config2.locale = locale2
-//            .getResources().updateConfiguration(
-//                config2, getBaseContext().getResources().getDisplayMetrics()
-//            )
-//            // loading data ...
-//            refresh()
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-//                val configuration = resources.configuration
-//                configuration.setLocale(Locale("en"))
-//                SpeedMeterApplication.instance.applicationContext.createConfigurationContext(
-//                    configuration
-//                )
-////                getApplicationContext().createConfigurationContext(configuration)
-//                Preferences.getInstance(context).setLan("en")
-//            } else {
-//                val locale = Locale("en")
-//                Locale.setDefault(locale)
-//                val configuration = resources.configuration
-////                val config = activity.getResources().getConfiguration()
-//                configuration.locale = locale
-//                resources.updateConfiguration(configuration, resources.displayMetrics)
-//                Preferences.getInstance(context).setLan("en")
-//            }
             onResult?.invoke("en")
             dismiss()
         }
 
         faBtn.setOnClickListener {
-            Log.d("Language", "Farsi selected.")
-
-            LocaleChanger.setLocale(Locale("fa"))
-            ActivityRecreationHelper.recreate(context as Activity,false)
-//            setAppLocale("fa")
-//            changeAppLocale("fa")
-//            val locale2 = Locale("fr")
-//            Locale.setDefault(locale2)
-//            val config2 = Configuration()
-//            config2.locale = locale2
-//            .getResources().updateConfiguration(
-//                config2, getBaseContext().getResources().getDisplayMetrics()
-//            )
-//            // loading data ...
-//            refresh()
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-//                val configuration = resources.configuration
-//                configuration.setLocale(Locale("fa"))
-//                SpeedMeterApplication.instance.applicationContext.createConfigurationContext(
-//                    configuration
-//                )
-//                Preferences.getInstance(context).setLan("fa")
-//
-//
-////                getApplicationContext().createConfigurationContext(configuration)
-//            } else {
-//                val locale = Locale("fa")
-//                Locale.setDefault(locale)
-//                val configuration = resources.configuration
-////                val config = activity.getResources().getConfiguration()
-//                configuration.locale = locale
-//                resources.updateConfiguration(configuration, resources.displayMetrics)
-//                Preferences.getInstance(context).setLan("fa")
-//
-//            }
-//            Log.d("Language", "farsi selected.")
-//            onResult?.invoke("fa")
-//            dismiss()
+          onResult?.invoke("fa")
+            dismiss()
         }
     }
     private fun setAppLocale(localeCode: String){
