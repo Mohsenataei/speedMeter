@@ -19,6 +19,7 @@ import com.stepstone.apprating.listener.RatingDialogListener
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import java.util.*
 import android.content.ActivityNotFoundException
+import com.pushpole.sdk.PushPole
 
 class SplashScreenActivity : BaseActivity(), RatingDialogListener {
     private lateinit var selectLanguageDialogFragment: SelectLanguageDialogFragment
@@ -47,11 +48,11 @@ class SplashScreenActivity : BaseActivity(), RatingDialogListener {
     }
 
     val res = SpeedMeterApplication.instance.resources
-    lateinit var lanDialog: SelectLanguageDialogFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
+        PushPole.initialize(this,true)
         val animation: Animation
         val animation1: Animation
 

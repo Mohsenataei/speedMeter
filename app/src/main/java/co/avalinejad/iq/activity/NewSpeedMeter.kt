@@ -29,7 +29,7 @@ class NewSpeedMeter : BaseActivity() , ActivityCompat.OnRequestPermissionsResult
         setContentView(R.layout.activity_new_speed_meter)
         MobileAds.initialize(this,"ca-app-pub-8616739363688136~4130606453")
 
-        val adRequest = AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build()
+        val adRequest: AdRequest = AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build()
 //        val adRequest = AdRequest.Builder()
 //            .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
 //            .build()
@@ -37,7 +37,7 @@ class NewSpeedMeter : BaseActivity() , ActivityCompat.OnRequestPermissionsResult
         // Start loading the ad in the background.
         ad_view.loadAd(adRequest)
 
-       // ad_view1.loadAd(adRequest)
+        ad_view1.loadAd(adRequest)
 
 
 //        val fragmentManager  = supportFragmentManager

@@ -11,7 +11,7 @@ import com.batch.android.BatchActivityLifecycleHelper
 import com.batch.android.Config
 
 
-import com.google.firebase.analytics.FirebaseAnalytics
+//import com.google.firebase.analytics.FirebaseAnalytics
 import com.jaredrummler.android.device.DeviceName
 import co.avalinejad.iq.network.RetrofitSingleton
 import co.avalinejad.iq.util.Util.getDeviceName
@@ -78,9 +78,9 @@ open class SpeedMeterApplication : LocaleAwareApplication() {
 
 
         Batch.setConfig(Config(BuildConfig.channelName))
-        registerActivityLifecycleCallbacks(BatchActivityLifecycleHelper())
+//        registerActivityLifecycleCallbacks(BatchActivityLifecycleHelper())
 
-        FirebaseAnalytics.getInstance(this)
+//        FirebaseAnalytics.getInstance(this)
 
         appInstall = co.avalinejad.iq.model.AppInstall()
 

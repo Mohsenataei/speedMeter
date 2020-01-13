@@ -104,11 +104,15 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.pnikosis:materialish-progress:1.7'
-    implementation 'com.google.firebase:firebase-core:17.2.1'
+//    implementation 'com.google.firebase:firebase-core:17.2.1'
     implementation 'com.batch.android:batch-sdk:1.14.2'
-    implementation 'com.google.firebase:firebase-messaging:20.1.0'
-    implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    implementation 'com.google.firebase:firebase-messaging:18.0.0'
+    implementation 'com.google.android.gms:play-services-ads:17.2.0'
     implementation 'com.stepstone.apprating:app-rating:2.3.1'
     implementation 'com.github.franmontiel:LocaleChanger:0.9.2'
     implementation 'com.zeugmasolutions.localehelper:locale-helper-android:1.0.2'
+    implementation 'com.pushpole.android:pushsdk:1.7.0'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+
 }

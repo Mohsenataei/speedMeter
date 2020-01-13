@@ -71,7 +71,7 @@ class SpeedMeterIntroFragment : Fragment(), CompoundButton.OnCheckedChangeListen
         super.onViewCreated(view, savedInstanceState)
 //        getView()!!.findNavController().navigate(R.id.action_LimitFragment_to_SpeedFragment)
         navController = Navigation.findNavController(view)
-        MobileAds.initialize(activity) {}
+        MobileAds.initialize(activity)
 
         initFullAd1(context, FULL1_UNIT_ID)
         initFullAd2(context, FULL2_UNIT_ID)

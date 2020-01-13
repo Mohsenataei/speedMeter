@@ -19,7 +19,13 @@
         tools:ignore="GoogleAppIndexingWarning">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8616739363688136~4130606453"/>
+            android:value="ca-app-pub-8616739363688136~4130606453" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />‍‍‍
+
+
         <activity android:name="co.avalinejad.iq.activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,16 +38,50 @@
         </activity>
         <activity android:name="co.avalinejad.iq.activity.HeadUpActivity" />
         <activity android:name="co.avalinejad.iq.activity.SpeedMeterIntroActivity" />
-
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_notifications" />
-
-
         <activity android:name="co.avalinejad.iq.activity.InnerPageActivity" />
         <activity android:name="co.avalinejad.iq.activity.IntroActivity" />
         <activity android:name="co.avalinejad.iq.activity.MainActivity" />
-        <activity android:name="co.avalinejad.iq.activity.SpeedMeterActivity"/>
+        <activity android:name="co.avalinejad.iq.activity.SpeedMeterActivity" />
+
+
+
+
+        <!-- Notification click/dismiss receiver -->
+        <receiver android:name=".receiver.NotificationClickDismissReceiver">
+            <intent-filter>
+                <action android:name="com.pushpole.sample.as.pusheco.NOTIF_CLICKED"/>
+                <action android:name="com.pushpole.sample.as.pusheco.NOTIF_DISMISSED" />
+                <action android:name="com.pushpole.sample.as.pusheco.NOTIF_BTN_CLICKED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Notification receive listener -->
+        <service
+            android:name=".receiver.NotificationListener"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.pushpole.sdk.RECEIVE" />
+            </intent-filter>
+        </service>
+
+
+        <meta-data
+            android:name="com.pushpole.sdk.token"
+            android:value="PUSHPOLE_417956304638" />
+
+        <!-- Custom firebase service for PushPole -->
+
+        <service
+            android:name="com.pushpole.sdk.fcm.FcmService"
+            tools:node="remove" />
+
+        <service android:name=".fcm.SpeedFcm">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+
     </application>
 
 </manifest>
